@@ -1,0 +1,1 @@
+{"uuid":"adb7782a-1249-48c9-8c60-24da138f2bd1","name":"Gadawl","children":["74f3bf67-722c-4b0b-9ffb-68d554e65926"],"befores":[{"name":"SetUp chrome driver","status":"passed","stage":"finished","description":"SetUp chrome driver","steps":[],"attachments":[],"parameters":[],"start":1674043875379,"stop":1674043877204}],"afters":[],"start":1674043875356,"stop":1674043885327}
