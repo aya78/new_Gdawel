@@ -70,6 +70,7 @@ public class add_product_validTest1 {
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         product_page.click_add_product(driver).click();
         Thread.sleep(2000);
+        // comment
     }
     @Test(priority = 3)
     public void search_product_page() throws InterruptedException {
