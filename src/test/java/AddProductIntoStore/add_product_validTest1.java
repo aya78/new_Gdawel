@@ -20,8 +20,6 @@ import static org.codehaus.plexus.util.FileUtils.cleanDirectory;
 import static org.codehaus.plexus.util.FileUtils.waitFor;
 
 public class add_product_validTest1 {
-
-
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
 
@@ -72,7 +70,6 @@ public class add_product_validTest1 {
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         product_page.click_add_product(driver).click();
         Thread.sleep(2000);
-
     }
     @Test(priority = 3)
     public void search_product_page() throws InterruptedException {
@@ -84,7 +81,6 @@ public class add_product_validTest1 {
 //      Assert.("product is added successfully");
         Thread.sleep(2000);
     }
-
     private void waitFor(String s) {
 
     }
