@@ -120,6 +120,7 @@ public class product_page {
         return element;
     }
     public static WebElement click_add_product(WebDriver driver){
+        //  comment
         element = driver.findElement(By.xpath("//input[@id='submit-btn']"));
         return element;
     }
