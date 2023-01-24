@@ -32,6 +32,8 @@ public class product_page {
         element = driver.findElement(By.xpath("//a[contains(@class,'btn btn-danger')]/following-sibling::a[1]"));
         return element;
     }
+    /**  ---------------------------------------------------------------add product -------------------------------------------------------------- **/
+
     // name
     public static WebElement enterProductName(WebDriver driver){
         element = driver.findElement(By.id("name"));
@@ -93,6 +95,10 @@ public class product_page {
         element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-3.col-lg-12 > div:nth-child(1) > div > div > div:nth-child(4) > div > select > option:nth-child(2)"));
         return element;
     }
+//    public static WebElement click__Tax(WebDriver driver){
+//        element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-3.col-lg-12 > div:nth-child(1) > div > div > div:nth-child(4) > div > select > option:nth-child(2)"));
+//        return element;
+//    }
     // #product-form > div > div > div.col-xl-3.col-lg-12 > div:nth-child(1) > div > div > div:nth-child(5) > div > select > option:nth-child(2)
     public static WebElement click_Tax_type(WebDriver driver){
         element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-3.col-lg-12 > div:nth-child(1) > div > div > div:nth-child(5) > div > select > option:nth-child(2)"));
@@ -100,7 +106,7 @@ public class product_page {
     }
     // //span[text()='هذا العنصر له سعر مختلف في المخازن']/following-sibling::span
     public static WebElement click_first_checklist(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"is-diffPrice\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"diffPrice-option\"]/h5/label/span[2]"));
         return element;
     }
     // (//input[@type='number'])[3]
@@ -109,6 +115,7 @@ public class product_page {
         return element;
     }
     // //table[@id='diffPrice-table']/thead[1]/tr[3]/td[2]/input[1]
+    // //*[@id="diffPrice-table"]/thead/tr[3]/td[2]/input
     public static WebElement set_second_value(WebDriver driver){
         element = driver.findElement(By.xpath("//*[@id=\"diffPrice-table\"]/thead/tr[3]/td[2]/input"));
         return element;
@@ -116,14 +123,62 @@ public class product_page {
     // //span[text()='يحتوي هذا العنصر على IMEI أو أرقام تسلسلية']/following-sibling::span
     // //*[@id="is-imei"]
     public static WebElement click_product_has_IMEI(WebDriver driver){
-        element = driver.findElement(By.xpath("//span[text()='يحتوي هذا العنصر على IMEI أو أرقام تسلسلية']/following-sibling::span"));
+        element = driver.findElement(By.xpath("//*[@id=\"imei-option\"]/h5/label/span[2]"));
         return element;
     }
+    /** هذا المنتج له دفعه و تاريخ انتهاء صلاحيه**/
+    // //*[@id="batch-option"]/h5/label/span[2]
+    public static WebElement click_checklist3(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"batch-option\"]/h5/label/span[2]"));
+        return element;
+    }
+    /** هذا المنتج له سعر ترويجي**/
+    // //*[@id="product-form"]/div/div/div[1]/div/div[2]/div/div[15]/h5/label/span[2]
+    // //*[@id="product-form"]/div/div/div[1]/div/div[2]/div/div[15]/h5/label/span[1]
+    public static WebElement click_checklist4(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"product-form\"]/div/div/div[1]/div/div[2]/div/div[15]/h5/label/span[2]"));
+        return element;
+    }
+    // //*[@id="promotion_price"]/input
+    public static WebElement enter_price(WebDriver driver){
+        element = driver.findElement(By.name("promotion_price"));
+        return element;
+    }
+
+    // //*[@id="submit-btn"]
     public static WebElement click_add_product(WebDriver driver){
+        //  comment
+        element = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));
+        return element;
+    }
+    /**  ---------------------------------------------------------------deleted products -------------------------------------------------------------- **/
+    public static WebElement click_deleted_products(WebDriver driver){
         //  comment
         element = driver.findElement(By.xpath("//input[@id='submit-btn']"));
         return element;
     }
-
-
+    // //*[@id="product-data-table"]/tbody/tr[1]/td[11]/div/button
+    public static WebElement click_action_button(WebDriver driver){
+        //  comment
+        element = driver.findElement(By.xpath("//*[@id=\"product-data-table\"]/tbody/tr[1]/td[11]/div/button"));
+        return element;
+    }
+    // //*[@id="product-data-table"]/tbody/tr[1]/td[11]/div/ul/li[1]/a
+    public static WebElement click_view_deleted_product(WebDriver driver){
+        //  comment
+        element = driver.findElement(By.xpath("//*[@id=\"product-data-table\"]/tbody/tr[1]/td[11]/div/ul/li[1]/a"));
+        return element;
+    }
+    // //*[@id="content"]/div/section/div/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/p
+    public static WebElement copy_barcode(WebDriver driver){
+        //  comment
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/p"));
+        return element;
+    }
+    // //*[@id="content"]/div/section/div/div/div[1]/div[2]/form[2]/button
+    public static WebElement restore_product(WebDriver driver){
+        //  comment
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div/div[1]/div[2]/form[2]/button"));
+        return element;
+    }
 }
