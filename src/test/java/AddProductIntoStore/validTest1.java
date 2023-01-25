@@ -2,8 +2,11 @@ package AddProductIntoStore;
 
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -64,6 +67,21 @@ public class validTest1 {
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         Thread.sleep(2000);
 
+        driver.findElement(By.id("imageUpload")).sendKeys("zara.jpeg");
+//        driver.findElement(By.id("file-submit")).submit();
+        if(driver.getPageSource().contains("File Uploaded!")) {
+            System.out.println("file uploaded");
+        }
+        else{
+            System.out.println("file not uploaded");
+        }
+        Thread.sleep(2000);
+
+        Actions a = new Actions(driver);
+        //scroll down a page
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+        //scroll up a page
+        a.sendKeys(Keys.PAGE_UP).build().perform();
         product_page.click_add_product(driver).click();
         Thread.sleep(2000);
         // comment

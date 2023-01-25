@@ -65,8 +65,8 @@ public class validTest4 {
 //      product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         product_page.click_Tax_type(driver).click();
         Thread.sleep(2000);
-        js.executeScript("arguments[0].scrollIntoView();", product_page.click_checklist3(driver));
-        product_page.click_checklist3(driver).click();
+        js.executeScript("arguments[0].scrollIntoView();", product_page.click_checklist2(driver));
+        product_page.click_checklist2(driver).click();
         Thread.sleep(2000);
         product_page.click_checklist4(driver).click();
         Thread.sleep(2000);

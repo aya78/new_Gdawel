@@ -46,7 +46,7 @@ public class product_page {
     }
     // #product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(4) > div > div > div > select > option:nth-child(5)
     public static WebElement select_barcode_sign(WebDriver driver){
-        element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(4) > div > div > div > select > option:nth-child(5)"));
+        element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(4) > div > div > div > select > option:nth-child(6)"));
         return element;
     }
     // //button[@type='button']//img
@@ -128,7 +128,7 @@ public class product_page {
     }
     /** هذا المنتج له دفعه و تاريخ انتهاء صلاحيه**/
     // //*[@id="batch-option"]/h5/label/span[2]
-    public static WebElement click_checklist3(WebDriver driver){
+    public static WebElement click_checklist2(WebDriver driver){
         element = driver.findElement(By.xpath("//*[@id=\"batch-option\"]/h5/label/span[2]"));
         return element;
     }
@@ -146,6 +146,7 @@ public class product_page {
     }
 
     // //*[@id="submit-btn"]
+    // submit-btn
     public static WebElement click_add_product(WebDriver driver){
         //  comment
         element = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));

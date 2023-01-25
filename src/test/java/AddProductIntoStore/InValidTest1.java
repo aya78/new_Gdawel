@@ -53,8 +53,10 @@ public class InValidTest1 {
         product_page.click_classification(driver).click();
         product_page.click_quantity(driver).sendKeys("");
         product_page.click_product_unit(driver).click();
-        product_page.click_product_cost(driver).sendKeys("20");
-        product_page.click_Product_selling_price(driver).sendKeys("30");
+        product_page.click_product_cost(driver).sendKeys("");
+        product_page.click_Product_selling_price(driver).sendKeys("");
+        product_page.click_additional_Tax(driver).click();
+
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         product_page.click_add_product(driver).click();
         Thread.sleep(2000);
