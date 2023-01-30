@@ -9,13 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
-
 public class add_service_test {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
-
     public String random_string = RandomStringUtils.random(6, true, false);
 
     public WebDriver driver;
@@ -43,14 +40,26 @@ public class add_service_test {
     }
     @Test(priority = 2)
     public void add_service_page() throws InterruptedException {
+        service_page.clickAddProduct(driver).click();
+        Thread.sleep(2000);
+
         service_page.clickAddService(driver).click();
-        service_page.enterServiceName(driver).click();
+        service_page.enterServiceName(driver).sendKeys(""+random_string);
         service_page.select_barcode(driver).sendKeys(""+random_barcode);
+        Thread.sleep(2000);
+        service_page.click_dropdown(driver).click();
+        Thread.sleep(1000);
+
         service_page.select_brand(driver).click();
         service_page.click_product_cost(driver).sendKeys("200");
         service_page.click_add_service(driver).click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
+    }
+    @Test(priority = 3)
+    public void search_service_page() throws InterruptedException {
+        product_page.clickOnSearch(driver).sendKeys(""+random_barcode);
+        Thread.sleep(2000);
     }
 //    @AfterTest
 //    public void TearDown(){
