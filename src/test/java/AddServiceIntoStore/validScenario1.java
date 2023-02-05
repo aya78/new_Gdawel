@@ -3,15 +3,13 @@ package AddServiceIntoStore;
 import AddProductIntoStore.product_page;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-/**  طريقه الضرايب ضريبه شامله و الضريبه مضافه* */
+/**  طريقه الضرايب ضريبه حصريه و الضريبه صفريه* */
 
-public class add_service_valid4 {
+public class validScenario1 {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
@@ -50,17 +48,7 @@ public class add_service_valid4 {
         service_page.click_dropdown(driver).click();
         Thread.sleep(1000);
         service_page.select_brand(driver).click();
-        service_page.click_product_cost(driver).sendKeys(random_number);
-        service_page.click_additional_Tax(driver).click();
-        service_page.click_Tax_type(driver).click();
-        Thread.sleep(1000);
-
-        Actions a = new Actions(driver);
-        //scroll down a page
-//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
-        //scroll up a page
-        a.sendKeys(Keys.PAGE_DOWN).build().perform();
-//        service_page.click_special_item(driver).click();
+        service_page.click_product_cost(driver).sendKeys("200");
         service_page.click_add_service(driver).click();
         Thread.sleep(1000);
     }
@@ -73,4 +61,5 @@ public class add_service_valid4 {
 //    public void TearDown(){
 //        driver.quit();
 //    }
+
 }

@@ -3,13 +3,14 @@ package AddServiceIntoStore;
 import AddProductIntoStore.product_page;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-/**  طريقه الضرايب ضريبه شامله و الضريبه صفريه* */
 
-public class add_service_valid3 {
+public class InvalidScenario2 {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
@@ -39,19 +40,29 @@ public class add_service_valid3 {
     }
     @Test(priority = 2)
     public void add_service_page() throws InterruptedException {
+        /** empty barcode && product_cost **/
+
         service_page.clickAddProduct(driver).click();
         Thread.sleep(2000);
         service_page.clickAddService(driver).click();
-        service_page.enterServiceName(driver).sendKeys(""+random_string);
+        service_page.enterServiceName(driver).sendKeys("");
         service_page.select_barcode(driver).sendKeys(""+random_barcode);
         Thread.sleep(2000);
         service_page.click_dropdown(driver).click();
         Thread.sleep(1000);
         service_page.select_brand(driver).click();
-        service_page.click_product_cost(driver).sendKeys("200");
-        service_page.click_Tax_type(driver).click();
-        service_page.click_add_service(driver).click();
+        service_page.click_product_cost(driver).sendKeys("");
+        service_page.click_additional_Tax(driver).click();
         Thread.sleep(1000);
+
+        Actions a = new Actions(driver);
+        //scroll down a page
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+        //scroll up a page
+        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+//        service_page.click_special_item(driver).click();
+        service_page.click_add_service(driver).click();
+        Thread.sleep(2000);
     }
     @Test(priority = 3)
     public void search_service_page() throws InterruptedException {

@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-/**  طريقه الضرايب ضريبه حصريه و الضريبه صفريه* */
+/** empty name  && exist barcode **/
 
-public class add_service_valid1 {
+public class InvalidScenario1 {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
@@ -39,11 +39,14 @@ public class add_service_valid1 {
     }
     @Test(priority = 2)
     public void add_service_page() throws InterruptedException {
+        /** empty name  && exist barcode
+         *  'قيمة code مُستخدمة من قبل
+         '**/
         service_page.clickAddProduct(driver).click();
         Thread.sleep(2000);
         service_page.clickAddService(driver).click();
         service_page.enterServiceName(driver).sendKeys(""+random_string);
-        service_page.select_barcode(driver).sendKeys(""+random_barcode);
+        service_page.select_barcode(driver).sendKeys("2652701");
         Thread.sleep(2000);
         service_page.click_dropdown(driver).click();
         Thread.sleep(1000);
@@ -52,11 +55,11 @@ public class add_service_valid1 {
         service_page.click_add_service(driver).click();
         Thread.sleep(1000);
     }
-    @Test(priority = 3)
-    public void search_service_page() throws InterruptedException {
-        service_page.clickOnSearch(driver).sendKeys(""+random_barcode);
-        Thread.sleep(2000);
-    }
+//    @Test(priority = 3)
+//    public void search_service_page() throws InterruptedException {
+//        service_page.clickOnSearch(driver).sendKeys("1232");
+//        Thread.sleep(2000);
+//    }
 //    @AfterTest
 //    public void TearDown(){
 //        driver.quit();

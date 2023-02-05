@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 /**  طريقه الضرايب ضريبه حصريه و الضريبه مضافه* */
 
-public class add_service_valid2 {
+public class validScenario2 {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
