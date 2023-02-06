@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class purchaseInvoice_page {
     private static WebElement element=null;
+    // nnnnnnnnnnnnnnnnnn
     // public int randomInt ;
     static WebDriver driver = null;
     public purchaseInvoice_page(WebDriver driver) {
