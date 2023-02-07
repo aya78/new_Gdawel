@@ -3,13 +3,37 @@ package purchase_invoice;
 import AddProductIntoStore.product_page;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class validScenario1 {
-    String random_number = RandomStringUtils.random(5, false, true);
+//    /**
+//     * wait until expected element is visible
+//     *
+//     * @param   expectedElement     element to be expected
+//     * @param   timeout             Maximum timeout time
+//     */
+//
+//    public  void waitForElement(By expectedElement, long timeout) {
+//        try {
+//            WebDriverWait wait = new WebDriverWait(driver, timeout);
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(expectedElement));
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            //System.out.println("print ur message here");
+//        }
+//    }
+    String random_number = RandomStringUtils.random(2, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
     public WebDriver driver;
@@ -27,15 +51,43 @@ public class validScenario1 {
         login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
         login_Page.enter_pass(driver).sendKeys("" + 12345678);
         login_Page.validlogin(driver).click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
     }
     @Test(priority = 1)
     public void open_purchase_page() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+
         purchaseInvoice_page.clickOnSideMenu(driver).click();
+        purchaseInvoice_page.clickOnPurchase(driver).click();
+
+    }
+    @Test(priority = 2)
+    public void add_purchase_page() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        purchaseInvoice_page.clickOnAddInvoice(driver).click();
+//        Thread.sleep(2000);
+        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
+        Thread.sleep(1000);
+//        purchaseInvoice_page.click_span(driver).click();
+//        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/chanel.png");
+        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectProduct(driver).click();
+        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
+//        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
+        Actions a = new Actions(driver);
+        //scroll down a page
+        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+        //scroll up a page
+//        a.sendKeys(Keys.PAGE_UP).build().perform();
         Thread.sleep(1000);
 
-        purchaseInvoice_page.clickOnPurchase(driver).click();
-        purchaseInvoice_page.clickOnAddInvoice(driver);
-        Thread.sleep(2000);
+        purchaseInvoice_page.clickAddInvoice(driver).click();
     }
 }

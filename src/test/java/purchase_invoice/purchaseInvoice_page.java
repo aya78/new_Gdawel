@@ -1,8 +1,16 @@
 package purchase_invoice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class purchaseInvoice_page {
     private static WebElement element=null;
@@ -26,4 +34,105 @@ public class purchaseInvoice_page {
         element = driver.findElement(By.xpath("//*[@id=\"data-length-operations\"]/a[1]"));
         return element;
     }
+    // //*[@id="purchase-form"]/div/div[2]/div/div[2]/button/div/div/div
+    public static WebElement clickOnSupplierDropdown(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[2]/div/div[2]/button/div/div/div"));
+        return element;
+    }
+// //*[@id="bs-select-11"]/ul/li[4]
+    public static WebElement selectValueFromDropdown1(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-11\"]/ul/li[4]"));
+        return element;
+    }
+    // //*[@id="purchase-form"]/div/div[3]/div/div/button
+    public static WebElement clickOnStoreDropdown(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[3]/div/div/button"));
+        return element;
+    }
+    // #bs-select-12-0
+    public static WebElement selectValueFromDropdown2(WebDriver driver){
+        element = driver.findElement(By.cssSelector("#bs-select-12-0"));
+        return element;
+    }
+    // //*[@id="purchase-form"]/div/div[5]/div/div/label/span
+    public static WebElement click_span(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[5]/div/div/label/span"));
+        return element;
+    }
+    // //*[@id="input-63e2154973d20"]
+    public static WebElement upload_file(WebDriver driver){
+        element = driver.findElement(By.id("input-63e2154973d20"));
+        return element;
+    }
+    public static WebElement scan_barcode(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"lims_productcodeSearch\"]"));
+        return element;
+    }
+    // //div[text()='06012945|flower']
+    // //div[text()='09391587|Walker Burks']
+    public static WebElement selectProduct(WebDriver driver){
+        element = driver.findElement(By.xpath("//div[text()='09391587|Walker Burks']"));
+        return element;
+    }
+    // //*[@id="purchase-form"]/div/div[9]/div/input
+    public static WebElement enter_tax(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[9]/div/input"));
+        return element;
+    }
+    // //*[@id="purchase-form"]/div/div[10]/div/input
+    public static WebElement enter_product_cost(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[10]/div/input"));
+        return element;
+    }
+    // //*[@id="submit-btn"]
+    public static WebElement clickAddInvoice(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"submit-btn\"] "));
+        return element;
+    }
+    // //*[@id="content"]/div/section/div/div[1]/div[1]/div[2]/button
+    public static WebElement clickAddPayment(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/button"));
+        return element;
+    }
+    // //*[@id="add-payment"]/div/div/div[2]/form/button
+    public static WebElement clickSaveButton(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"add-payment\"]/div/div/div[2]/form/button"));
+        return element;
+    }
+    public static WebElement clickViewInvoice(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/a"));
+        return element;
+    }
+    // //*[@id="dropGroup"]/button
+    public static WebElement clickMoreButton(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"dropGroup\"]/button"));
+        return element;
+    }
+    // //*[@id="dropItems"]/a[1]
+    public static WebElement printInvoice(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"dropItems\"]/a[1]"));
+        return element;
+    }
+    // //*[@id="dropItems"]/a[2]
+    public static WebElement AddReturnInvoice(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"dropItems\"]/a[2]"));
+        return element;
+    }
+
+
+
 }
+//    public WebElement fluentWait(final By locator) {
+//        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+//                .withTimeout(30, TimeUnit.SECONDS)
+//                .pollingEvery(5, TimeUnit.SECONDS)
+//                .ignoring(NoSuchElementException.class);
+//
+//        WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+//            public WebElement apply(WebDriver driver) {
+//                return driver.findElement(locator);
+//            }
+//        });
+//
+//        return  foo;
+//    };
