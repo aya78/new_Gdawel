@@ -55,8 +55,9 @@ public class validScenario1 {
     }
     @Test(priority = 1)
     public void open_purchase_page() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
 
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         purchaseInvoice_page.clickOnPurchase(driver).click();
 
@@ -89,5 +90,22 @@ public class validScenario1 {
         Thread.sleep(1000);
 
         purchaseInvoice_page.clickAddInvoice(driver).click();
+    }
+    @Test(priority = 3)
+    public void pay_purchase_invoice() {
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+
+        purchaseInvoice_page.clickAddPayment(driver).click();
+        purchaseInvoice_page.clickSaveButton(driver).click();
+//        purchaseInvoice_page.clickViewInvoice(driver).click();
+    }
+    @Test(priority = 4)
+    public void search_about_purchase_invoice()  {
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+
+        String d = driver.findElement(By.xpath("//p[text()='رقم الفاتورة']/following-sibling::p")).getText();
+        driver.navigate().to("http://10.10.0.50/sales");
+        purchaseInvoice_page.searchbar(driver).sendKeys(""+d);
+
     }
 }

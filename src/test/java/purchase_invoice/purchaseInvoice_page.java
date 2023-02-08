@@ -99,6 +99,11 @@ public class purchaseInvoice_page {
         element=driver.findElement(By.xpath("//*[@id=\"add-payment\"]/div/div/div[2]/form/button"));
         return element;
     }
+    // //i[contains(@class,'fa fa-search')]/following-sibling::input[1]
+    public static WebElement searchbar(WebDriver driver){
+        element=driver.findElement(By.xpath("//i[contains(@class,'fa fa-search')]/following-sibling::input[1]"));
+        return element;
+    }
     public static WebElement clickViewInvoice(WebDriver driver){
         element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/a"));
         return element;
