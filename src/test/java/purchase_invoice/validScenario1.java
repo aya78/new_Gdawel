@@ -66,7 +66,7 @@ public class validScenario1 {
     public void add_purchase_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         purchaseInvoice_page.clickOnAddInvoice(driver).click();
-//        Thread.sleep(2000);
+//      Thread.sleep(2000);
         purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
         Thread.sleep(1000);
         purchaseInvoice_page.selectValueFromDropdown1(driver).click();
@@ -90,22 +90,32 @@ public class validScenario1 {
         Thread.sleep(1000);
 
         purchaseInvoice_page.clickAddInvoice(driver).click();
+        Thread.sleep(3000);
+
     }
+//    @Test(priority = 3)
+//    public void pay_purchase_invoice() {
+//        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+//
+//        purchaseInvoice_page.clickAddPayment(driver).click();
+//        purchaseInvoice_page.clickSaveButton(driver).click();
+////        purchaseInvoice_page.clickViewInvoice(driver).click();
+//    }
     @Test(priority = 3)
-    public void pay_purchase_invoice() {
+    public void search_about_purchase_invoice() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
 
-        purchaseInvoice_page.clickAddPayment(driver).click();
-        purchaseInvoice_page.clickSaveButton(driver).click();
-//        purchaseInvoice_page.clickViewInvoice(driver).click();
-    }
-    @Test(priority = 4)
-    public void search_about_purchase_invoice()  {
-        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        String s = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[8]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/p[2]")).getText();
+        driver.navigate().to("http://10.10.0.50/purchases/");
+        Thread.sleep(2000);
+        purchaseInvoice_page.searchbar(driver).sendKeys(""+s);
+        System.out.println(s);
+        Thread.sleep(1000);
 
-        String d = driver.findElement(By.xpath("//p[text()='رقم الفاتورة']/following-sibling::p")).getText();
-        driver.navigate().to("http://10.10.0.50/sales");
-        purchaseInvoice_page.searchbar(driver).sendKeys(""+d);
-
+        purchaseInvoice_page.click_action_dropdown(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.click_show_payment(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.close_show_payment(driver).click();
     }
 }

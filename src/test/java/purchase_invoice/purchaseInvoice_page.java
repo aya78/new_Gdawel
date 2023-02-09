@@ -99,11 +99,28 @@ public class purchaseInvoice_page {
         element=driver.findElement(By.xpath("//*[@id=\"add-payment\"]/div/div/div[2]/form/button"));
         return element;
     }
+    /**************************************************************************************************************************************/
     // //i[contains(@class,'fa fa-search')]/following-sibling::input[1]
     public static WebElement searchbar(WebDriver driver){
         element=driver.findElement(By.xpath("//i[contains(@class,'fa fa-search')]/following-sibling::input[1]"));
         return element;
     }
+    // //*[@id="purchase-table"]/tbody/tr/td[10]/div/button
+    public static WebElement click_action_dropdown(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"purchase-table\"]/tbody/tr/td[10]/div/button"));
+        return element;
+    }
+    // //*[@id="purchase-table"]/tbody/tr/td[10]/div/ul/li[2]/button
+    public static WebElement click_show_payment(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"purchase-table\"]/tbody/tr/td[10]/div/ul/li[2]/button"));
+        return element;
+    }
+    // //*[@id="view-payment"]/div/div/div[1]/button
+    public static WebElement close_show_payment(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"view-payment\"]/div/div/div[1]/button"));
+        return element;
+    }
+
     public static WebElement clickViewInvoice(WebDriver driver){
         element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/a"));
         return element;
