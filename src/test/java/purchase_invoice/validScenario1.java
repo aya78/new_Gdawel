@@ -19,6 +19,7 @@ public class validScenario1 {
     String random_number = RandomStringUtils.random(2, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
+    public String currentUrl;
     public WebDriver driver;
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
@@ -45,72 +46,73 @@ public class validScenario1 {
         purchaseInvoice_page.clickOnPurchase(driver).click();
 
     }
-//    @Test(priority = 2)
-//    public void add_purchase_page() throws InterruptedException {
-//        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-//        purchaseInvoice_page.clickOnAddInvoice(driver).click();
-////      Thread.sleep(2000);
-//        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
-//        Thread.sleep(1000);
-//        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
-//        Thread.sleep(1000);
-//        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
-//        Thread.sleep(1000);
-//        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
-//        Thread.sleep(1000);
-////        purchaseInvoice_page.click_span(driver).click();
-////        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/chanel.png");
-//        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
-//        Thread.sleep(1000);
-//        purchaseInvoice_page.selectProduct(driver).click();
-//        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
-////        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
-//        Actions a = new Actions(driver);
-//        //scroll down a page
-//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
-//        //scroll up a page
-////        a.sendKeys(Keys.PAGE_UP).build().perform();
-//        Thread.sleep(1000);
-//
-//        purchaseInvoice_page.clickAddInvoice(driver).click();
-//        Thread.sleep(3000);
-//        String currentUrl =driver.getCurrentUrl();
-//    }
-    @Test(priority =3)
-    public void view_purchase_invoice() throws InterruptedException {
+    @Test(priority = 2)
+    public void add_purchase_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        purchaseInvoice_page.open_invoice(driver).click();
-        Thread.sleep(2000);
-        String currentUrl =driver.getCurrentUrl();
-        purchaseInvoice_page.clickMoreButton(driver).click();
-        purchaseInvoice_page.clickViewInvoice(driver).click();
-//        driver.navigate().back();
-        Thread.sleep(2000);
-//        String d = driver.findElement(By.xpath("//div[@class='text-intial']//p[1]")).getText();
-//        System.out.println(d);
-//        driver.navigate().to(currentUrl);
-//        Thread.sleep(2000);
+        purchaseInvoice_page.clickOnAddInvoice(driver).click();
+//      Thread.sleep(2000);
+        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
+        Thread.sleep(1000);
+//        purchaseInvoice_page.click_span(driver).click();
+//        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/chanel.png");
+        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
+        Thread.sleep(1000);
+        purchaseInvoice_page.selectProduct(driver).click();
+        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
+//        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
+        Actions a = new Actions(driver);
+        //scroll down a page
+        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+        //scroll up a page
+//        a.sendKeys(Keys.PAGE_UP).build().perform();
+        Thread.sleep(1000);
+        purchaseInvoice_page.clickAddInvoice(driver).click();
+        Thread.sleep(3000);
+        currentUrl =driver.getCurrentUrl();
     }
-
-//    @Test(priority = 3)
-//    public void pay_purchase_invoice() {
+//    @Test(priority =3)
+//    public void view_purchase_invoice() throws InterruptedException {
 //        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-//
-//        purchaseInvoice_page.clickAddPayment(driver).click();
-//        purchaseInvoice_page.clickSaveButton(driver).click();
-////        purchaseInvoice_page.clickViewInvoice(driver).click();
+//        purchaseInvoice_page.open_invoice(driver).click();
+//        Thread.sleep(2000);
+//        String currentUrl =driver.getCurrentUrl();
+//        purchaseInvoice_page.clickMoreButton(driver).click();
+//        purchaseInvoice_page.clickViewInvoice(driver).click();
+////        driver.navigate().back();
+//        Thread.sleep(2000);
+////        String d = driver.findElement(By.xpath("//div[@class='text-intial']//p[1]")).getText();
+////        System.out.println(d);
+////        driver.navigate().to(currentUrl);
+////        Thread.sleep(2000);
 //    }
+
+    @Test(priority = 3,description = "add payment (full required amount)")
+    public void pay_purchase_invoice() {
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        purchaseInvoice_page.clickAddPayment(driver).click();
+        purchaseInvoice_page.clickSaveButton(driver).click();
+//        purchaseInvoice_page.clickViewInvoice(driver).click();
+    }
     @Test(priority = 4, description = "after create invoice copy it`s number and open purchases page and paste in search bar ")
     public void search_about_purchase_invoice() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        String s = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[8]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/p[2]")).getText();
-        driver.navigate().to("http://10.10.0.50/purchases/");
         Thread.sleep(2000);
-        purchaseInvoice_page.searchbar(driver).sendKeys(""+s);
-        System.out.println(s);
+        driver.navigate().to(currentUrl);
+//        String s = driver.findElement(By.xpath("//p[text()='رقم الفاتورة']/following-sibling::p")).getText();
+        // String s = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[8]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/p[2]")).getText();
+        String s = driver.findElement(By.xpath("(//p[contains(@class,'mb-0 fs-6')])[3]")).getText();
         Thread.sleep(1000);
-
+        System.out.println(s);
+        driver.navigate().to("http://10.10.0.50/purchases");
+        purchaseInvoice_page.searchbar(driver).sendKeys(""+s);
+        Thread.sleep(1000);
         purchaseInvoice_page.click_action_dropdown(driver).click();
         Thread.sleep(1000);
         purchaseInvoice_page.click_show_payment(driver).click();

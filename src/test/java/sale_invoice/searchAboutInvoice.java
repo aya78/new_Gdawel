@@ -22,7 +22,7 @@ public class searchAboutInvoice {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
         driver=new ChromeDriver();
     }
-    @Story("Gadawel Basic Login")@TmsLink("TC-001")
+    @Story("Gadawel Basic Login")@TmsLink("TC-000")
     @Test(priority = 0, description = " Login to Gdawel with valid username & password for exist user \nThen the result status will open the website")
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
@@ -33,7 +33,7 @@ public class searchAboutInvoice {
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
-    @Story("Gadawel sales")@TmsLink("TC-002")
+    @Story("Gadawel sales")@TmsLink("TC-001")
     @Test(priority = 1)
     public void open_sales_page() {
         /**THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
@@ -41,7 +41,7 @@ public class searchAboutInvoice {
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         sale_page.open_sales(driver).click();
     }
-    @Story("Gadawel Basic sales search")@TmsLink("TC-003")
+    @Story("Gadawel Basic sales search")@TmsLink("TC-002")
     @Test(priority = 2, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
             "\nThen the result status will get the sale invoice that matches the num entered in search bar ")
     public void search_about_sale_invoice() throws InterruptedException {
