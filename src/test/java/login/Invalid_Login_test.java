@@ -16,7 +16,7 @@ public class Invalid_Login_test {
         driver=new ChromeDriver();
     }
 
-    @Test(description = "login into Gadawel with correct e-mail & empty password ")
+    @Test(priority = 0,description = "login into Gadawel with correct e-mail & empty password ")
     public void LoginWithEmptyPassword() throws InterruptedException {
 
         driver.manage().window().maximize();
@@ -27,7 +27,7 @@ public class Invalid_Login_test {
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }
-    @Test(description = "login into Gadawel with Incorrect e-mail & correct password ")
+    @Test(priority = 1,description = "login into Gadawel with Incorrect e-mail & correct password ")
     public void LoginWithInvalidEmail() throws InterruptedException {
 
         driver.manage().window().maximize();
@@ -39,7 +39,7 @@ public class Invalid_Login_test {
         Thread.sleep(2000);
 
     }
-    @Test(description = "login into Gadawel with empty e-mail & correct password ")
+    @Test(priority = 2,description = "login into Gadawel with empty e-mail & correct password ")
     public void LoginWithEmptyEmail() throws InterruptedException {
 
         driver.manage().window().maximize();

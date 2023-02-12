@@ -89,7 +89,7 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
-            <classifier></classifier>
+<!--            <classifier></classifier>-->
         </dependency>
 
         <!--webmagic-core核心包 -->
@@ -150,41 +150,46 @@
             <artifactId>allure-testng</artifactId>
             <version>2.20.1</version>
         </dependency>
-<!-- ************************************************************************************************************************************
         <dependency>
-            <groupId>net.sourceforge.htmlunit</groupId>
-            <artifactId>htmlunit</artifactId>
-            <version>2.63.0</version>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>index-array-by</artifactId>
+            <version>1.3.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.2.1</version>
-        </dependency>
+        <!-- ************************************************************************************************************************************
+                <dependency>
+                    <groupId>net.sourceforge.htmlunit</groupId>
+                    <artifactId>htmlunit</artifactId>
+                    <version>2.63.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                    <version>2.13.2.1</version>
+                </dependency>
 
-            <dependency>
-                <groupId>org.jsoup</groupId>
-                <artifactId>jsoup</artifactId>
-                <version>1.14.1</version>
-            </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.8.1</version>
-        </dependency>
+                    <dependency>
+                        <groupId>org.jsoup</groupId>
+                        <artifactId>jsoup</artifactId>
+                        <version>1.14.1</version>
+                    </dependency>
+                <dependency>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-java</artifactId>
+                    <version>3.8.1</version>
+                </dependency>
 
-        <dependency>
-            <groupId>com.github.detro</groupId>
-            <artifactId>phantomjsdriver</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-        </dependency>
-        ******************************************************************************************************************************************
--->
+                <dependency>
+                    <groupId>com.github.detro</groupId>
+                    <artifactId>phantomjsdriver</artifactId>
+                    <version>1.2.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                    <version>3.12.0</version>
+                </dependency>
+                ******************************************************************************************************************************************
+        -->
 
     </dependencies>
 

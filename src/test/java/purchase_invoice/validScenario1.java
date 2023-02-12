@@ -16,23 +16,6 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class validScenario1 {
-//    /**
-//     * wait until expected element is visible
-//     *
-//     * @param   expectedElement     element to be expected
-//     * @param   timeout             Maximum timeout time
-//     */
-//
-//    public  void waitForElement(By expectedElement, long timeout) {
-//        try {
-//            WebDriverWait wait = new WebDriverWait(driver, timeout);
-//            wait.until(ExpectedConditions.visibilityOfElementLocated(expectedElement));
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            //System.out.println("print ur message here");
-//        }
-//    }
     String random_number = RandomStringUtils.random(2, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
@@ -51,7 +34,7 @@ public class validScenario1 {
         login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
         login_Page.enter_pass(driver).sendKeys("" + 12345678);
         login_Page.validlogin(driver).click();
-//        Thread.sleep(2000);
+//      Thread.sleep(2000);
     }
     @Test(priority = 1)
     public void open_purchase_page() throws InterruptedException {
@@ -62,37 +45,53 @@ public class validScenario1 {
         purchaseInvoice_page.clickOnPurchase(driver).click();
 
     }
-    @Test(priority = 2)
-    public void add_purchase_page() throws InterruptedException {
+//    @Test(priority = 2)
+//    public void add_purchase_page() throws InterruptedException {
+//        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+//        purchaseInvoice_page.clickOnAddInvoice(driver).click();
+////      Thread.sleep(2000);
+//        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
+//        Thread.sleep(1000);
+//        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
+//        Thread.sleep(1000);
+//        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
+//        Thread.sleep(1000);
+//        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
+//        Thread.sleep(1000);
+////        purchaseInvoice_page.click_span(driver).click();
+////        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/chanel.png");
+//        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
+//        Thread.sleep(1000);
+//        purchaseInvoice_page.selectProduct(driver).click();
+//        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
+////        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
+//        Actions a = new Actions(driver);
+//        //scroll down a page
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+//        //scroll up a page
+////        a.sendKeys(Keys.PAGE_UP).build().perform();
+//        Thread.sleep(1000);
+//
+//        purchaseInvoice_page.clickAddInvoice(driver).click();
+//        Thread.sleep(3000);
+//        String currentUrl =driver.getCurrentUrl();
+//    }
+    @Test(priority =3)
+    public void view_purchase_invoice() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        purchaseInvoice_page.clickOnAddInvoice(driver).click();
-//      Thread.sleep(2000);
-        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
-        Thread.sleep(1000);
-        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
-        Thread.sleep(1000);
-        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
-        Thread.sleep(1000);
-        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
-        Thread.sleep(1000);
-//        purchaseInvoice_page.click_span(driver).click();
-//        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/chanel.png");
-        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
-        Thread.sleep(1000);
-        purchaseInvoice_page.selectProduct(driver).click();
-        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
-//        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
-        Actions a = new Actions(driver);
-        //scroll down a page
-        a.sendKeys(Keys.PAGE_DOWN).build().perform();
-        //scroll up a page
-//        a.sendKeys(Keys.PAGE_UP).build().perform();
-        Thread.sleep(1000);
-
-        purchaseInvoice_page.clickAddInvoice(driver).click();
-        Thread.sleep(3000);
-
+        purchaseInvoice_page.open_invoice(driver).click();
+        Thread.sleep(2000);
+        String currentUrl =driver.getCurrentUrl();
+        purchaseInvoice_page.clickMoreButton(driver).click();
+        purchaseInvoice_page.clickViewInvoice(driver).click();
+//        driver.navigate().back();
+        Thread.sleep(2000);
+//        String d = driver.findElement(By.xpath("//div[@class='text-intial']//p[1]")).getText();
+//        System.out.println(d);
+//        driver.navigate().to(currentUrl);
+//        Thread.sleep(2000);
     }
+
 //    @Test(priority = 3)
 //    public void pay_purchase_invoice() {
 //        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
@@ -101,10 +100,10 @@ public class validScenario1 {
 //        purchaseInvoice_page.clickSaveButton(driver).click();
 ////        purchaseInvoice_page.clickViewInvoice(driver).click();
 //    }
-    @Test(priority = 3)
+    @Test(priority = 4, description = "after create invoice copy it`s number and open purchases page and paste in search bar ")
     public void search_about_purchase_invoice() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
 
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         String s = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[8]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/p[2]")).getText();
         driver.navigate().to("http://10.10.0.50/purchases/");
         Thread.sleep(2000);
@@ -117,5 +116,7 @@ public class validScenario1 {
         purchaseInvoice_page.click_show_payment(driver).click();
         Thread.sleep(1000);
         purchaseInvoice_page.close_show_payment(driver).click();
+
     }
+
 }

@@ -45,7 +45,7 @@ public class register_test1 {
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"register_stepper\"]/form/div[1]/div/div[2]/div/div[1]/div/select/option[2]")));
         // Print the first result
         System.out.println(firstResult.getText());
-        // Step 1
+        /** ********************************************Step  1***********************************************************/
         register_Page.click_country1(driver).click();
         register_Page.click_plan1(driver).click();
         register_Page.click_personal_account(driver).click();
@@ -55,7 +55,7 @@ public class register_test1 {
     @Test(priority = 1)
     public void Register_Step2() throws InterruptedException {
 
-        // Step 2
+        /** ********************************************Step  2***********************************************************/
         register_Page.enter_name(driver).sendKeys("" + person_name + " " + person_name);
 //        String var = register_Page.enter_name(driver).getText();
         register_Page.enter_Email(driver).sendKeys("" + person_name + email_n + "@gmail.com");
@@ -78,7 +78,7 @@ public class register_test1 {
     public void Register_Step3() throws InterruptedException {
 
       Thread.sleep(2000);
-        // Step 3
+        /** ***********************************************Step 3************************************************************************/
         register_Page.enter_company_name(driver).sendKeys("" + random_string + " " + random_string);
         register_Page.enter_manager_name(driver).sendKeys("" + random_manager_n + " " + random_manager_n);
         register_Page.enter_company_email(driver).sendKeys("" + random_string + "@" + random_string + ".com");
@@ -109,11 +109,10 @@ public class register_test1 {
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='fw-bold fs-3']")));
         // Print the first result
         System.out.println(firstResult.getText());
-        // Step4
+        /** ********************************************Step  4***********************************************************/
         register_Page.select_sizeOfTeam1(driver).click();
         register_Page.click_c_work1(driver).click();
-//        register_Page.select_company_activities(driver).sendKeys(Keys.RETURN);
-
+//      register_Page.select_company_activities(driver).sendKeys(Keys.RETURN);
 
         // click the "UploadFile" button
         register_Page.upload_c_image(driver).sendKeys("/home/hash-pc-8/Downloads/company.jpeg");

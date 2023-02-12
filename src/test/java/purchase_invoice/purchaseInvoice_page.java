@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 public class purchaseInvoice_page {
     private static WebElement element=null;
-    // nnnnnnnnnnnnnnnnnn
+
     // public int randomInt ;
     static WebDriver driver = null;
     public purchaseInvoice_page(WebDriver driver) {
@@ -120,16 +120,16 @@ public class purchaseInvoice_page {
         element=driver.findElement(By.xpath("//*[@id=\"view-payment\"]/div/div/div[1]/button"));
         return element;
     }
-
-    public static WebElement clickViewInvoice(WebDriver driver){
-        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/a"));
-        return element;
-    }
     // //*[@id="dropGroup"]/button
     public static WebElement clickMoreButton(WebDriver driver){
-        element=driver.findElement(By.xpath("//*[@id=\"dropGroup\"]/button"));
+        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/div[1]/button"));
         return element;
     }
+    public static WebElement clickViewInvoice(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"invoiceItems\"]/a[1]"));
+        return element;
+    }
+
     // //*[@id="dropItems"]/a[1]
     public static WebElement printInvoice(WebDriver driver){
         element=driver.findElement(By.xpath("//*[@id=\"dropItems\"]/a[1]"));
@@ -137,10 +137,19 @@ public class purchaseInvoice_page {
     }
     // //*[@id="dropItems"]/a[2]
     public static WebElement AddReturnInvoice(WebDriver driver){
-        element=driver.findElement(By.xpath("//*[@id=\"dropItems\"]/a[2]"));
+        element=driver.findElement(By.xpath("//*[@id=\"invoiceItems\"]/a[3]"));
         return element;
     }
-
+// //table[@id='purchase-table']/tbody[1]/tr[1]/td[1]
+public static WebElement open_invoice(WebDriver driver){
+    element=driver.findElement(By.xpath("//table[@id='purchase-table']/tbody[1]/tr[1]/td[1]"));
+    return element;
+}
+    // //button[@data-toggle='modal']//span[1]
+    public static WebElement change_status_of_invoice(WebDriver driver){
+        element=driver.findElement(By.xpath("//button[@data-toggle='modal']//span[1]"));
+        return element;
+    }
 
 
 }
@@ -158,3 +167,20 @@ public class purchaseInvoice_page {
 //
 //        return  foo;
 //    };
+//    /**
+//     * wait until expected element is visible
+//     *
+//     * @param   expectedElement     element to be expected
+//     * @param   timeout             Maximum timeout time
+//     */
+//
+//    public  void waitForElement(By expectedElement, long timeout) {
+//        try {
+//            WebDriverWait wait = new WebDriverWait(driver, timeout);
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(expectedElement));
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            //System.out.println("print ur message here");
+//        }
+//    }
