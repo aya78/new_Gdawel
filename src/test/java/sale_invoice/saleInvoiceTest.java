@@ -25,7 +25,7 @@ public class saleInvoiceTest {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
         driver=new ChromeDriver();
     }
-    @Story("Gadawel Basic Login")@TmsLink("TC-001")
+    @Story("Gadawel Basic Login")@TmsLink("TC-000")
     @Test(priority = 0, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen the result status will open the website")
     public void Valid_login() throws InterruptedException {
@@ -37,7 +37,7 @@ public class saleInvoiceTest {
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
-    @Story("Gadawel sales")@TmsLink("TC-002")
+    @Story("Gadawel sales")@TmsLink("TC-001")
     @Test(priority = 1)
     public void open_sales_page() {
         /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
@@ -45,7 +45,7 @@ public class saleInvoiceTest {
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         sale_page.open_sales(driver).click();
     }
-    @Story("add sale invoice ")@TmsLink("TC-003")
+    @Story("add sale invoice ")@TmsLink("TC-002")
     @Test(priority = 2, description = "add sale invoice with [ reimbursement status : pending, invoice status : complete ] "+
     "Then the result status will add invoice & open it`s details")
     public void add_sale_invoice() throws InterruptedException {
@@ -73,8 +73,8 @@ public class saleInvoiceTest {
         sale_page.clickAddInvoice(driver).click();
     }
     /******************************************************************************************************************************************************/
-    @Story("Gadawel Basic sales search")@TmsLink("TC-004")
-    @Test(priority = 2, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
+    @Story("Gadawel Basic sales search")@TmsLink("TC-003")
+    @Test(priority = 3, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
             "\nThen the result status will get the sale invoice that matches the num entered in search bar that recently added")
     public void search_about_sale_invoice() throws InterruptedException {
 
@@ -94,7 +94,7 @@ public class saleInvoiceTest {
 //        search_about_sale_invoice();
     }
     @Story("Operation on sale invoice")@TmsLink("TC-004")
-    @Test(priority =3, description = " add payment (full required amount) , delivery (on progress)," +
+    @Test(priority =4, description = " add payment (full required amount) , delivery (on progress)," +
             " view payment  for specific sale invoice ")
     public void action_on_sale_invoice() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);

@@ -90,8 +90,9 @@ public class purchaseInvoice_page {
         return element;
     }
     // //*[@id="content"]/div/section/div/div[1]/div[1]/div[2]/button
+    // //*[@id="content"]/div/section/div/div[1]/div[1]/div[2]/button[1]
     public static WebElement clickAddPayment(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/button"));
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/button[1]"));
         return element;
     }
     // //*[@id="add-payment"]/div/div/div[2]/form/button
@@ -102,7 +103,7 @@ public class purchaseInvoice_page {
     /**************************************************************************************************************************************/
     // //i[contains(@class,'fa fa-search')]/following-sibling::input[1]
     public static WebElement searchbar(WebDriver driver){
-        element=driver.findElement(By.xpath("//i[contains(@class,'fa fa-search')]/following-sibling::input[1]"));
+        element=driver.findElement(By.className("form-control form-control-sm"));
         return element;
     }
     // //*[@id="purchase-table"]/tbody/tr/td[10]/div/button
