@@ -25,7 +25,7 @@ public class purchaseInvoice_page {
         return element;
     }
     // //*[@id="purchase-list-menu"]/a
-    public static WebElement clickOnPurchase(WebDriver driver){
+    public static WebElement clickOnPurchases(WebDriver driver){
         element = driver.findElement(By.xpath("//*[@id=\"purchase-list-menu\"]/a"));
         return element;
     }
@@ -60,8 +60,9 @@ public class purchaseInvoice_page {
         return element;
     }
     // //*[@id="input-63e2154973d20"]
+    // //*[@id="input-63e9f96197c31"]
     public static WebElement upload_file(WebDriver driver){
-        element = driver.findElement(By.id("input-63e2154973d20"));
+        element = driver.findElement(By.className("form-control"));
         return element;
     }
     public static WebElement scan_barcode(WebDriver driver){
