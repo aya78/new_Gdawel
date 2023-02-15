@@ -1,4 +1,4 @@
-package purchase_invoice;
+package purchase_and_return_invoice;
 
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import sale_and_return_invoice.sale_page;
 
 import java.util.concurrent.TimeUnit;
 

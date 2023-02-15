@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import purchase_invoice.purchaseInvoice_page;
+import purchase_and_return_invoice.purchaseInvoice_page;
 import java.util.concurrent.TimeUnit;
 public class saleInvoiceTest {
 //    String random_number = RandomStringUtils.random(2, false, true);

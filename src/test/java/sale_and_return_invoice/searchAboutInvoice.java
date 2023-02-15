@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import purchase_invoice.purchaseInvoice_page;
+import purchase_and_return_invoice.purchaseInvoice_page;
 
 import java.util.concurrent.TimeUnit;
 
