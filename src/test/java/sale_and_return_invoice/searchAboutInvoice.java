@@ -1,4 +1,4 @@
-package sale_invoice;
+package sale_and_return_invoice;
 
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;

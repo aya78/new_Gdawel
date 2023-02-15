@@ -122,11 +122,7 @@ public class purchaseInvoice_page {
         element=driver.findElement(By.xpath("//*[@id=\"view-payment\"]/div/div/div[1]/button"));
         return element;
     }
-    // //*[@id="dropGroup"]/button
-    public static WebElement clickMoreButton(WebDriver driver){
-        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/div[1]/button"));
-        return element;
-    }
+
     public static WebElement clickViewInvoice(WebDriver driver){
         element=driver.findElement(By.xpath("//*[@id=\"invoiceItems\"]/a[1]"));
         return element;
@@ -152,7 +148,30 @@ public static WebElement open_invoice(WebDriver driver){
         element=driver.findElement(By.xpath("//button[@data-toggle='modal']//span[1]"));
         return element;
     }
+    /***********************************************************return purchase****************************************************************/
+    // //*[@id="dropGroup"]/button
+    public static WebElement clickMoreButton(WebDriver driver){
+        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/div[1]/button"));
+        return element;
+    }
+    // //*[@id="invoiceItems"]/a[3]
+    public static WebElement click_return_purchase(WebDriver driver) {
+        element = driver.findElement(By.xpath("//*[@id=\"invoiceItems\"]/a[3]"));
+        return element;
+    }
 
+    // //*[@id="myTable"]/tbody/tr/td[9]/input
+    public static WebElement select_products(WebDriver driver) {
+        element = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr/td[9]/input"));
+        return element;
+    }
+
+    // #submit-button
+    public static WebElement click_save_return_purchase(WebDriver driver) {
+        element = driver.findElement(By.cssSelector("#submit-button"));
+        return element;
+    }
+    /***********************************************************************************************************/
 
 }
 //    public WebElement fluentWait(final By locator) {

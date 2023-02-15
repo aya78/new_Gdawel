@@ -1,4 +1,4 @@
-package sale_invoice;
+package sale_and_return_invoice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
