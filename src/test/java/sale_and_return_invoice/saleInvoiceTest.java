@@ -4,6 +4,7 @@ import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,54 +45,54 @@ public class saleInvoiceTest {
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         sale_page.open_sales(driver).click();
     }
-    @Story("add sale invoice ")@TmsLink("TC-002")
-    @Test(priority = 2, description = "add sale invoice with [ reimbursement status : pending, invoice status : complete ] "+
-    "Then the result status will add invoice & open it`s details")
-    public void add_sale_invoice() throws InterruptedException {
-        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
-        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        sale_page.clickOnAddInvoice(driver).click();
-        Thread.sleep(1000);
-        sale_page.clickOnClientDropdown(driver).click();
-        sale_page.selectValueFromDropdown1(driver).click();
-        Thread.sleep(1000);
-        sale_page.clickOnStoreDropdown(driver).click();
-        sale_page.selectValueFromDropdown2(driver).click();
-        Thread.sleep(1000);
-        sale_page.click_bill_collector(driver).click();
-        sale_page.selectValueFromDropdown3(driver).click();
-        Thread.sleep(1000);
-        sale_page.scan_barcode(driver).sendKeys(""+1);
-        Thread.sleep(1000);
-        sale_page.selectProduct(driver).click();
-        sale_page.enter_Shipping_charges(driver).sendKeys("20");
-        Actions a = new Actions(driver);
-        a.sendKeys(Keys.PAGE_DOWN).build().perform();
-        Thread.sleep(1000);
-        sale_page.clickAddInvoice(driver).click();
-    }
-    /******************************************************************************************************************************************************/
-//    @Story("Gadawel Basic sales search")@TmsLink("TC-003")
-//    @Test(priority = 3, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
-//            "\nThen the result status will get the sale invoice that matches the num entered in search bar that recently added")
-//    public void search_about_sale_invoice() throws InterruptedException {
-//
+//    @Story("add sale invoice ")@TmsLink("TC-002")
+//    @Test(priority = 2, description = "add sale invoice with [ reimbursement status : pending, invoice status : complete ] "+
+//    "Then the result status will add invoice & open it`s details")
+//    public void add_sale_invoice() throws InterruptedException {
+//        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
 //        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-////      sale_page.open_invoice(driver).click();
+//        sale_page.clickOnAddInvoice(driver).click();
 //        Thread.sleep(1000);
-//        String  s= driver.findElement(By.xpath("(//p[contains(@class,'mb-0 text-muted')]/following-sibling::p)[3]")).getText();
-////        String s = driver.findElement(By.xpath("(//p[contains(@class,'mb-0 text-muted')]/following-sibling::p)[2]")).getText();
-//        purchaseInvoice_page.clickOnPurchases(driver).click();
-//        Thread.sleep(2000);
-//        sale_page.searchbar(driver).sendKeys(""+s);
-//        System.out.println(s);
-//        //sale_page.add_payment(driver).click();
-////        Thread.sleep(500);
-////        sale_page.click_save(driver).click();
-////        Thread.sleep(1000);
-////        search_about_sale_invoice();
+//        sale_page.clickOnClientDropdown(driver).click();
+//        sale_page.selectValueFromDropdown1(driver).click();
+//        Thread.sleep(1000);
+//        sale_page.clickOnStoreDropdown(driver).click();
+//        sale_page.selectValueFromDropdown2(driver).click();
+//        Thread.sleep(1000);
+//        sale_page.click_bill_collector(driver).click();
+//        sale_page.selectValueFromDropdown3(driver).click();
+//        Thread.sleep(1000);
+//        sale_page.scan_barcode(driver).sendKeys(""+1);
+//        Thread.sleep(1000);
+//        sale_page.selectProduct(driver).click();
+//        sale_page.enter_Shipping_charges(driver).sendKeys("20");
+//        Actions a = new Actions(driver);
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+//        Thread.sleep(1000);
+//        sale_page.clickAddInvoice(driver).click();
 //    }
-//    @Story("Operation on sale invoice")@TmsLink("TC-004")
+    /******************************************************************************************************************************************************/
+    @Story("Gadawel Basic sales search")@TmsLink("TC-003")
+    @Test(priority = 3, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
+            "\nThen the result status will get the sale invoice that matches the num entered in search bar that recently added")
+    public void search_about_sale_invoice() throws InterruptedException {
+
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        sale_page.open_invoice(driver).click();
+        Thread.sleep(1000);
+        String  s= driver.findElement(By.xpath("(//p[contains(@class,'mb-0 text-muted')]/following-sibling::p)[3]")).getText();
+//        String s = driver.findElement(By.xpath("(//p[contains(@class,'mb-0 text-muted')]/following-sibling::p)[2]")).getText();
+        purchaseInvoice_page.clickOnPurchases(driver).click();
+        Thread.sleep(2000);
+        sale_page.searchbar(driver).sendKeys(""+s);
+        System.out.println(s);
+        sale_page.add_payment(driver).click();
+        Thread.sleep(500);
+        sale_page.click_save(driver).click();
+//      Thread.sleep(1000);
+//      search_about_sale_invoice();
+    }
+//    @Story("Operation on sale invoice")@TmsLink("TC-003")
 //    @Test(priority =4, description = " add payment (full required amount) , delivery (on progress)," +
 //            " view payment  for specific sale invoice ")
 //    public void action_on_sale_invoice() throws InterruptedException {
@@ -106,11 +107,11 @@ public class saleInvoiceTest {
 //        sale_page.click_action_dropdown(driver).click();
 //        Thread.sleep(2000);
 //        /************error**************** Done*/
-//        sale_page.add_delivery_for_invoice(driver).click();
-//        Thread.sleep(500);
-//        sale_page.change_status_of_delivery(driver).click();
-//        sale_page.select_value_for_status_of_delivery(driver).click();
-//        sale_page.click_save_in_add_delivery(driver).click();
+////        sale_page.add_delivery_for_invoice(driver).click();
+////        Thread.sleep(500);
+////        sale_page.change_status_of_delivery(driver).click();
+////        sale_page.select_value_for_status_of_delivery(driver).click();
+////        sale_page.click_save_in_add_delivery(driver).click();
 //    }
 
 }

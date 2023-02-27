@@ -33,7 +33,7 @@ public class Action_on_quotation {
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
-    @Story(" actions on quotations")@TmsLink("TC-002")
+    @Story(" actions on quotations")@TmsLink("TC-001")
     @Test(priority = 0, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen view quotation")
     public void action_on_quotation_invoice() throws InterruptedException {
