@@ -12,6 +12,41 @@ public class product_page {
     public product_page(WebDriver driver) {
         this.driver = driver;
     }
+    public static class RandomString {
+
+        private final int i;
+
+        public RandomString(int i) {
+            this.i=i;
+        }
+
+        // function to generate a random string of length n
+        static String getAlphaNumericString(int n) {
+
+            // choose a Character random from this String
+            String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    + "0123456789"
+                    + "abcdefghijklmnopqrstuvxyz";
+
+            // create StringBuffer size of AlphaNumericString
+            StringBuilder sb = new StringBuilder(n);
+
+            for (int i = 0; i < n; i++) {
+
+                // generate a random number between
+                // 0 to AlphaNumericString variable length
+                int index
+                        = (int) (AlphaNumericString.length()
+                        * Math.random());
+
+                // add Character one by one in end of sb
+                sb.append(AlphaNumericString
+                        .charAt(index));
+            }
+
+            return sb.toString();
+        }
+    }
     public static WebElement clickOnSideMenu(WebDriver driver){
         element = driver.findElement(By.xpath("//*[@id=\"side-main-menu\"]/li[3]/a"));
         return element;
@@ -29,7 +64,7 @@ public class product_page {
     }
 
     public static WebElement clickAddProduct(WebDriver driver){
-        element = driver.findElement(By.xpath("//a[contains(@class,'btn btn-danger')]/following-sibling::a[1]"));
+        element = driver.findElement(By.xpath("(//div[contains(@class,'text-intial mt-sm-0')]//a)[2]"));
         return element;
     }
     /**  ---------------------------------------------------------------add product -------------------------------------------------------------- **/
@@ -61,7 +96,11 @@ public class product_page {
     // #product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(6) > div > div > div > select > option:nth-child(2)
     // #bs-select-13-0
     public static WebElement click_classification(WebDriver driver){
-        element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(6) > div > div > div > select > option:nth-child(2)"));
+        element = driver.findElement(By.cssSelector("#product-form > div > div > div.col-xl-9.col-lg-12 > div > div.card-body > div > div:nth-child(5) > div > div > div > button"));
+        return element;
+    }
+    public static WebElement select_classification(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-9-0\"]"));
         return element;
     }
     // (//input[@step='any'])[2]

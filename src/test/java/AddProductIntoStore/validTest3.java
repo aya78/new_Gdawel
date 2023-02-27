@@ -26,8 +26,8 @@ public class validTest3 {
         driver.manage().window().maximize();
         driver.get("http://10.10.0.50/");
         login_Page.click_login(driver).click();
-        login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
+        login_Page.enter_pass(driver).sendKeys("" + 123456789);
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }
@@ -50,7 +50,10 @@ public class validTest3 {
 
         product_page.select_barcode(driver).sendKeys("" + random_barcode);
         System.out.println(random_barcode);
+        Thread.sleep(2000);
+
         product_page.click_classification(driver).click();
+        product_page.select_classification(driver).click();
         product_page.click_quantity(driver).sendKeys("10");
         product_page.click_product_unit(driver).click();
         product_page.click_product_cost(driver).sendKeys(""+random_number);

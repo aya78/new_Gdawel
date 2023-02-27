@@ -186,7 +186,6 @@ public static WebElement open_invoice(WebDriver driver){
 //     * @param   expectedElement     element to be expected
 //     * @param   timeout             Maximum timeout time
 //     */
-//
 //    public  void waitForElement(By expectedElement, long timeout) {
 //        try {
 //            WebDriverWait wait = new WebDriverWait(driver, timeout);

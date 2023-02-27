@@ -42,7 +42,7 @@ public class return_sale {
     public void open_sales_page() {
         /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        purchaseInvoice_page.clickOnSideMenu(driver).click();
+        sale_page.clickOnSideMenu(driver).click();
         sale_page.open_sales(driver).click();
     }
 //    @Story("add sale invoice ")@TmsLink("TC-002")
