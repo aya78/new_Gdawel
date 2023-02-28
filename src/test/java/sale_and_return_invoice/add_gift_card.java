@@ -6,11 +6,18 @@ import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 import purchase_and_return_invoice.purchaseInvoice_page;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static sale_and_return_invoice.GiftCardPage.*;
+import static sale_and_return_invoice.GiftCardPage.getAlertText;
 
 public class add_gift_card {
         String random_number = RandomStringUtils.random(3, false, true);
@@ -36,39 +43,49 @@ public class add_gift_card {
 //      Thread.sleep(2000);
     }
     @Test (priority = 1)
-    public void Add_Gift_Card() throws InterruptedException {
+    public getAlertText Add_Gift_Card() throws InterruptedException {
         /**  عميل نقدي**/
      sale_page.clickOnSideMenu(driver).click();
-        Thread.sleep(1000);
-        sale_page.open_gift_card(driver).click();
-        Thread.sleep(1000);
-
-        sale_page.add_gift_card(driver).click();
-        Thread.sleep(1000);
-
-        sale_page.insert_gift_card_barcode(driver).click();
-     sale_page.add_value_for_gift_card(driver).sendKeys(""+random_number);
-     sale_page.click_dropdown_of_client(driver).click();
      Thread.sleep(1000);
-     sale_page.select_client(driver).click();
-     sale_page.click_add_gift_card(driver).click();
+     open_gift_card(driver).click();
+     Thread.sleep(1000);
+
+     add_gift_card(driver).click();
+     Thread.sleep(1000);
+
+     insert_gift_card_barcode(driver).click();
+     add_value_for_gift_card(driver).sendKeys(""+random_number);
+     click_dropdown_of_client(driver).click();
+     Thread.sleep(1000);
+     select_client(driver).click();
+     click_add_gift_card(driver).click();
+     return new getAlertText();
+//   assertEquals(getAlertText().contains("GiftCard created successfully"), true, "error");
+
     }
-//    @Test(priority = 2)
-//    public void open_sales_page() {
-//        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
-//        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-//        purchaseInvoice_page.clickOnSideMenu(driver).click();
-//        sale_page.open_sales(driver).click();
-//    }
-//    @Test(priority = 3)
-//    public void open_sale_invoice() throws InterruptedException {
-//     sale_page.open_invoice(driver).click();
-//     sale_page.add_payment(driver).click();
-//     sale_page.click_dropdown_of_gift_card(driver).click();
-//     Thread.sleep(1000);
-//     sale_page.select_gift_card(driver).click();
-//     Thread.sleep(1000);
-//     sale_page.click_save(driver).click();
-//    }
+    @Test(priority = 2)
+    public void open_sales_page() {
+        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        purchaseInvoice_page.clickOnSideMenu(driver).click();
+        sale_page.open_sales(driver).click();
+    }
+    @Test(priority = 3,description = " open sale invoice and add payment by gift card it`s value more than price of sale invoice" +
+            " \n then it will withdraw the money in the card, and whoever remains will go to the deferred amount")
+    public void open_sale_invoiceAnd_pay() throws InterruptedException {
+     sale_page.open_invoice(driver).click();
+     sale_page.add_payment(driver).click();
+     Thread.sleep(1000);
+     sale_page.select_payment_method(driver).click();
+     Thread.sleep(1000);
+     sale_page.select_payment_with_giftCard(driver).click();
+     Thread.sleep(1000);
+     sale_page.click_dropdown_of_gift_card(driver).click();
+     Thread.sleep(1000);
+     sale_page.select_gift_card(driver).click();
+     Thread.sleep(1000);
+     sale_page.click_save(driver).click();
+     GiftCardPage.open_gift_card(driver).click();
+    }
 
 }
