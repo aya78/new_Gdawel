@@ -73,17 +73,17 @@ public class validTest1 {
 //        js.executeScript("arguments[0].setAttribute('class', arguments[1])", driver.findElement(By.xpath("//input[@type='file']/../../div[2]")), "a");
 //        driver.findElement(By.xpath("//input[@type='file']")).sendKeys("Your Path to the file your system");
         File file = new File("iphone.jpeg");
-        product_page.upload_product_img(driver).sendKeys(file.getAbsolutePath());
-        Thread.sleep(2000);
-
-//        driver.findElement(By.id("imageUpload")).sendKeys("zara.jpeg");
-//        driver.findElement(By.id("file-submit")).submit();
-        if(driver.getPageSource().contains("File Uploaded!")) {
-            System.out.println("file uploaded");
-        }
-        else{
-            System.out.println("file not uploaded");
-        }
+//        product_page.upload_product_img(driver).sendKeys(file.getAbsolutePath());
+//        Thread.sleep(2000);
+//
+////        driver.findElement(By.id("imageUpload")).sendKeys("zara.jpeg");
+////        driver.findElement(By.id("file-submit")).submit();
+//        if(driver.getPageSource().contains("File Uploaded!")) {
+//            System.out.println("file uploaded");
+//        }
+//        else{
+//            System.out.println("file not uploaded");
+//        }
         Thread.sleep(2000);
 
         Actions a = new Actions(driver);

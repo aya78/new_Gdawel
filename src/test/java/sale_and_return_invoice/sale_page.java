@@ -179,7 +179,7 @@ public class sale_page {
     }
     // //*[@id="add-payment"]/div/div/div[2]/form/div[1]/div[4]/div/button
     public static WebElement select_payment_method(WebDriver driver) {
-        element = driver.findElement(By.xpath("//*[@id=\"add-payment\"]/div/div/div[2]/form/div[1]/div[4]/div/button"));
+        element = driver.findElement(By.xpath("//*[@id=\"add-payment\"]/div/div/div[2]/form/div[1]/div[2]/div/button"));
         return element;
     }
     public static WebElement select_payment_with_giftCard(WebDriver driver) {
@@ -191,8 +191,13 @@ public class sale_page {
         return element;
     }
     // //*[@id="bs-select-9-0"]
-    public static WebElement select_gift_card(WebDriver driver) {
+    public static WebElement select_gift_card1(WebDriver driver) {
         element = driver.findElement(By.xpath("//*[@id=\"bs-select-10\"]/ul/li[1]"));
+        return element;
+    }
+    // //*[@id="bs-select-10-2"]
+    public static WebElement select_gift_card2(WebDriver driver) {
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-10-2\"]"));
         return element;
     }
 

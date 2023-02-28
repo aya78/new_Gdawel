@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import static sale_and_return_invoice.GiftCardPage.*;
 
-public class Add_gift_card {
+public class add_gift_card2 {
     String random_number = RandomStringUtils.random(3, false, true);
 
     public String url ;
@@ -67,22 +67,21 @@ public class Add_gift_card {
         sale_page.open_sales(driver).click();
 
     }
-    @Test(priority = 3,description = " open sale invoice and add payment by gift card it`s value more than price of sale invoice" +
+    @Test(priority = 3,description = " open sale invoice and add payment by gift card it`s value less than price of sale invoice" +
             " \n then it will withdraw the money in the card, and whoever remains will go to the deferred amount")
     public void open_sale_invoiceAnd_pay() throws InterruptedException {
-     sale_page.open_invoice(driver).click();
-     sale_page.add_payment(driver).click();
-     Thread.sleep(1000);
-     sale_page.select_payment_method(driver).click();
-     Thread.sleep(1000);
-     sale_page.select_payment_with_giftCard(driver).click();
-     Thread.sleep(1000);
-     sale_page.click_dropdown_of_gift_card(driver).click();
-     Thread.sleep(1000);
-     sale_page.select_gift_card1(driver).click();
-     Thread.sleep(1000);
-     sale_page.click_save(driver).click();
-     GiftCardPage.open_gift_card(driver).click();
+        sale_page.open_invoice(driver).click();
+        sale_page.add_payment(driver).click();
+        Thread.sleep(1000);
+        sale_page.select_payment_method(driver).click();
+        Thread.sleep(1000);
+        sale_page.select_payment_with_giftCard(driver).click();
+        Thread.sleep(1000);
+        sale_page.click_dropdown_of_gift_card(driver).click();
+        Thread.sleep(1000);
+        sale_page.select_gift_card2(driver).click();
+        Thread.sleep(1000);
+        sale_page.click_save(driver).click();
+        GiftCardPage.open_gift_card(driver).click();
     }
-
 }
