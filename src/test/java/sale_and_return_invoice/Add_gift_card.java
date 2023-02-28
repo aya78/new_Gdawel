@@ -6,24 +6,20 @@ import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import purchase_and_return_invoice.purchaseInvoice_page;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static sale_and_return_invoice.GiftCardPage.*;
-import static sale_and_return_invoice.GiftCardPage.getAlertText;
 
-public class add_gift_card {
-        String random_number = RandomStringUtils.random(3, false, true);
+public class Add_gift_card {
+    String random_number = RandomStringUtils.random(3, false, true);
 
     public String url ;
     public WebDriver driver;
+
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
     {
@@ -43,23 +39,23 @@ public class add_gift_card {
 //      Thread.sleep(2000);
     }
     @Test (priority = 1)
-    public getAlertText Add_Gift_Card() throws InterruptedException {
+    public void AddGiftCard() throws InterruptedException {
         /**  عميل نقدي**/
-     sale_page.clickOnSideMenu(driver).click();
-     Thread.sleep(1000);
-     open_gift_card(driver).click();
-     Thread.sleep(1000);
+        sale_page.clickOnSideMenu(driver).click();
+        Thread.sleep(1000);
+        open_gift_card(driver).click();
+        Thread.sleep(1000);
 
-     add_gift_card(driver).click();
-     Thread.sleep(1000);
-
-     insert_gift_card_barcode(driver).click();
-     add_value_for_gift_card(driver).sendKeys(""+random_number);
-     click_dropdown_of_client(driver).click();
-     Thread.sleep(1000);
-     select_client(driver).click();
-     click_add_gift_card(driver).click();
-     return new getAlertText();
+        add_gift_card(driver).click();
+        Thread.sleep(1000);
+        insert_gift_card_barcode(driver).click();
+        add_value_for_gift_card(driver).sendKeys(""+random_number);
+        System.out.println(random_number);
+        click_dropdown_of_client(driver).click();
+        Thread.sleep(1000);
+        select_client(driver).click();
+        click_add_gift_card(driver).click();
+//        return new getAlertText();
 //   assertEquals(getAlertText().contains("GiftCard created successfully"), true, "error");
 
     }
@@ -69,6 +65,7 @@ public class add_gift_card {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         sale_page.open_sales(driver).click();
+
     }
     @Test(priority = 3,description = " open sale invoice and add payment by gift card it`s value more than price of sale invoice" +
             " \n then it will withdraw the money in the card, and whoever remains will go to the deferred amount")
@@ -85,6 +82,7 @@ public class add_gift_card {
      sale_page.select_gift_card(driver).click();
      Thread.sleep(1000);
      sale_page.click_save(driver).click();
+
      GiftCardPage.open_gift_card(driver).click();
     }
 

@@ -38,7 +38,7 @@ public class sale_page {
 
     // //*[@id="bs-select-11"]/ul/li[3]
     public static WebElement selectValueFromDropdown1(WebDriver driver) {
-        element = driver.findElement(By.xpath("//*[@id=\"bs-select-11\"]/ul/li[3]"));
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-8-0\"]"));
         return element;
     }
 
@@ -50,7 +50,7 @@ public class sale_page {
 
     // #bs-select-12 > ul > li:nth-child(1)
     public static WebElement selectValueFromDropdown2(WebDriver driver) {
-        element = driver.findElement(By.cssSelector("#bs-select-12 > ul > li:nth-child(1)"));
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-9-1\"]"));
         return element;
     }
 
