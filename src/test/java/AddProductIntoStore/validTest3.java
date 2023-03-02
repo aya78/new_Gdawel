@@ -1,5 +1,6 @@
 package AddProductIntoStore;
 
+import com.github.javafaker.Faker;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,7 @@ public class validTest3 {
     @Test(priority = 0)
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
         login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
         login_Page.enter_pass(driver).sendKeys("" + 123456789);
@@ -41,24 +42,33 @@ public class validTest3 {
     @Test(priority = 2)
     public void add_product_page() throws InterruptedException {
 
+        for(int i=0 ; i<= 5 ; i++)
+        {}
+        product_page object =new product_page();
+        Faker fakeData=new Faker();
+        object.setName(fakeData.name().name());
+        object.setBarcode(fakeData.number().digits(8));
+        object.setQuantity(fakeData.number().digits(2));
+        object.setProduct_cost(fakeData.number().digits(3));
+        object.setSelling_price(fakeData.number().digits(3));
         product_page.clickAddProduct(driver).click();
-
         Thread.sleep(2000);
-        product_page.enterProductName(driver).sendKeys(""+random_string);
+        product_page.enterProductName(driver).sendKeys(object.getName());
+        product_page.click_brand(driver).click();
         product_page.select_brand(driver).click();
 //        product_page.click_barcode_generator(driver).click();
-
-        product_page.select_barcode(driver).sendKeys("" + random_barcode);
-        System.out.println(random_barcode);
+        product_page.select_barcode(driver).sendKeys(object.getBarcode());
+        String d = object.getBarcode();
+        System.out.println(d);
         Thread.sleep(2000);
 
         product_page.click_classification(driver).click();
         product_page.select_classification(driver).click();
-        product_page.click_quantity(driver).sendKeys("10");
+        product_page.click_quantity(driver).sendKeys(object.getQuantity());
         product_page.click_product_unit(driver).click();
-        product_page.click_product_cost(driver).sendKeys(""+random_number);
+        product_page.click_product_cost(driver).sendKeys(object.getProduct_cost());
         Thread.sleep(2000);
-        product_page.click_Product_selling_price(driver).sendKeys(""+random_number);
+        product_page.click_Product_selling_price(driver).sendKeys(object.getSelling_price());
 //        product_page.click_additional_Tax(driver).click();
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         Thread.sleep(2000);
@@ -70,7 +80,7 @@ public class validTest3 {
     @Test(priority = 3)
     public void search_product_page() throws InterruptedException {
 
-        product_page.clickOnSearch(driver).sendKeys(""+random_barcode);
-        Thread.sleep(2000);
+//        product_page.clickOnSearch(driver).sendKeys(object.getBarcode());
+//        Thread.sleep(2000);
     }
 }

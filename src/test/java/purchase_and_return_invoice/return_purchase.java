@@ -29,10 +29,10 @@ public class return_purchase {
     @Test(priority = 0)
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
-        login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
+        login_Page.enter_pass(driver).sendKeys("" + 123456789);
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
@@ -78,7 +78,7 @@ public class return_purchase {
     @Story("Gadawel Basic sales search")@TmsLink("TC-003")
     @Test(priority = 2, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
             "\nThen the result status will get the sale invoice that matches the num entered in search bar that recently added")
-    public void create_return_sale_invoice() throws InterruptedException {
+    public void create_return_purchase_invoice() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         purchaseInvoice_page.open_invoice(driver).click();

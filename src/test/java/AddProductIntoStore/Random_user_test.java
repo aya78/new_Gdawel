@@ -58,7 +58,7 @@ public class Random_user_test {
             product_page.clickAddProduct(driver).click();
 
             Thread.sleep(2000);
-            product_page.enterProductName(driver).sendKeys(""+ new product_page.RandomString(6));
+            product_page.enterProductName(driver).sendKeys("");
             product_page.select_brand(driver).click();
             product_page.select_barcode(driver).sendKeys("" + random_barcode);
             System.out.println(barcode);

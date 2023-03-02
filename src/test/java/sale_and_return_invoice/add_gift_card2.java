@@ -31,7 +31,7 @@ public class add_gift_card2 {
             " \nThen the result status will open the website")
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
         login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
         login_Page.enter_pass(driver).sendKeys("" + 123456789);
@@ -79,6 +79,8 @@ public class add_gift_card2 {
         Thread.sleep(1000);
         sale_page.click_dropdown_of_gift_card(driver).click();
         Thread.sleep(1000);
+        String s= sale_page.select_gift_card2(driver).getText();
+        System.out.println(s);
         sale_page.select_gift_card2(driver).click();
         Thread.sleep(1000);
         sale_page.click_save(driver).click();

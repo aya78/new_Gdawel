@@ -37,7 +37,7 @@ public class register_test2 {
     public void Register_Step1() throws InterruptedException {
 
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         register_Page.click_register(driver).click();
 
         WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))

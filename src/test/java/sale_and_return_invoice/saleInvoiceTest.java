@@ -30,7 +30,7 @@ public class saleInvoiceTest {
             " \nThen the result status will open the website")
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
         login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
         login_Page.enter_pass(driver).sendKeys("" + 123456789);

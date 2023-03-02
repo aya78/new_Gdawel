@@ -1,5 +1,6 @@
 package AddProductIntoStore;
 
+import com.github.javafaker.Faker;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
@@ -31,10 +32,10 @@ public class validTest2 {
     @Test(priority = 0)
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get("http://10.10.0.50/");
+        driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
-        login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
+        login_Page.enter_pass(driver).sendKeys("" + 123456789);
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }
@@ -49,36 +50,49 @@ public class validTest2 {
     public void add_product_page() throws InterruptedException {
 
         Thread.sleep(2000);
-        product_page.clickAddProduct(driver).click();
-
-        Thread.sleep(2000);
-        product_page.enterProductName(driver).sendKeys("" + random_string);
-        product_page.select_brand(driver).click();
-        product_page.click_barcode_generator(driver).click();
-        Thread.sleep(2000);
-        product_page.click_classification(driver).click();
-//        product_page.click_quantity(driver).sendKeys("10");
-        product_page.click_product_unit(driver).click();
-        product_page.click_product_cost(driver).sendKeys("" + random_number);
-        product_page.click_Product_selling_price(driver).sendKeys("" + random_number);
-//      product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
-        product_page.click_additional_Tax(driver).click();
-        product_page.click_Tax_type(driver).click();
-        Thread.sleep(2000);
-
-        product_page.click_first_checklist(driver).click();
-        Thread.sleep(2000);
-        product_page.set_first_value(driver).sendKeys("200");
-        product_page.set_second_value(driver).sendKeys("600");
-        new WebDriverWait(driver, Duration.ofSeconds(20));
-        product_page.click_product_has_IMEI(driver).click();
-        product_page.click_add_product(driver).click();
-        Thread.sleep(2000);
-
-    }
-    @AfterTest
-    public void TearDown(){
-        driver.quit();
-    }
+//        for (int i = 0; i <= 1; i++) {
+            product_page.clickAddProduct(driver).click();
+            product_page object =new product_page();
+            Faker fakeData=new Faker();
+            object.setName(fakeData.name().name());
+            object.setBarcode(fakeData.number().digits(8));
+            object.setQuantity(fakeData.number().digits(2));
+            object.setProduct_cost(fakeData.number().digits(3));
+            object.setSelling_price(fakeData.number().digits(3));
+            String m = fakeData.job().position();
+            System.out.println(m);
+            Thread.sleep(2000);
+            product_page.enterProductName(driver).sendKeys(object.getName());
+            product_page.click_brand(driver).click();
+            product_page.select_brand(driver);
+            product_page.select_barcode(driver).sendKeys(object.getBarcode());
+            String s = object.getBarcode();
+            System.out.println(s);
+            Thread.sleep(2000);
+            product_page.click_classification(driver).click();
+            product_page.select_classification(driver);
+//            product_page.select_classification(driver).click();
+//            product_page.click_quantity(driver).sendKeys("10");
+            product_page.click_product_unit(driver).click();
+            product_page.click_product_cost(driver).sendKeys(object.getProduct_cost());
+            product_page.click_Product_selling_price(driver).sendKeys(object.getSelling_price());
+//              product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
+            product_page.click_additional_Tax(driver).click();
+            product_page.click_Tax_type(driver).click();
+            Thread.sleep(2000);
+//            product_page.click_first_checklist(driver).click();
+//            Thread.sleep(2000);
+//            product_page.set_first_value(driver).sendKeys("200");
+//            product_page.set_second_value(driver).sendKeys("600");
+//            new WebDriverWait(driver, Duration.ofSeconds(20));
+//            product_page.click_product_has_IMEI(driver).click();
+            product_page.click_add_product(driver).click();
+            Thread.sleep(2000);
+        }
+//    }
+//    @AfterTest
+//    public void TearDown(){
+//        driver.quit();
+//    }
 
 }
