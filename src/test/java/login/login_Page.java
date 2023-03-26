@@ -13,6 +13,7 @@ public class login_Page {
         this.driver = driver;
     }
     //email
+    // //*[@id="navbarSupportedContent"]/div/a[1]
     public static WebElement click_login(WebDriver driver){
          element = driver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div/a[1]"));
         return element;

@@ -49,8 +49,9 @@ public class validTest2 {
     @Test(priority = 2)
     public void add_product_page() throws InterruptedException {
 
-        Thread.sleep(2000);
-//        for (int i = 0; i <= 1; i++) {
+
+        for (int i = 0; i <= 5; i++) {
+            Thread.sleep(2000);
             product_page.clickAddProduct(driver).click();
             product_page object =new product_page();
             Faker fakeData=new Faker();
@@ -59,6 +60,8 @@ public class validTest2 {
             object.setQuantity(fakeData.number().digits(2));
             object.setProduct_cost(fakeData.number().digits(3));
             object.setSelling_price(fakeData.number().digits(3));
+            boolean d = fakeData.file().extension().isBlank();
+
             String m = fakeData.job().position();
             System.out.println(m);
             Thread.sleep(2000);
@@ -76,7 +79,8 @@ public class validTest2 {
             product_page.click_product_unit(driver).click();
             product_page.click_product_cost(driver).sendKeys(object.getProduct_cost());
             product_page.click_Product_selling_price(driver).sendKeys(object.getSelling_price());
-//              product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
+            // /home/hash-pc-8/Downloads/iphone.jpeg
+          product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
             product_page.click_additional_Tax(driver).click();
             product_page.click_Tax_type(driver).click();
             Thread.sleep(2000);
@@ -89,7 +93,7 @@ public class validTest2 {
             product_page.click_add_product(driver).click();
             Thread.sleep(2000);
         }
-//    }
+    }
 //    @AfterTest
 //    public void TearDown(){
 //        driver.quit();

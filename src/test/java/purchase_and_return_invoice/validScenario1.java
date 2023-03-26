@@ -1,5 +1,7 @@
 package purchase_and_return_invoice;
 
+import AddProductIntoStore.product_page;
+import com.github.javafaker.Faker;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
@@ -45,22 +47,25 @@ public class validScenario1 {
     @Test(priority = 2)
     public void add_purchase_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        product_page object =new product_page();
+        Faker fakeData=new Faker();
+        object.setBarcode(fakeData.number().digits(3));
         purchaseInvoice_page.clickOnAddInvoice(driver).click();
 //      Thread.sleep(2000);
         purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
         Thread.sleep(1000);
-        purchaseInvoice_page.selectValueFromDropdown1(driver).click();
+        purchaseInvoice_page.select_supplier(driver);
         Thread.sleep(1000);
         purchaseInvoice_page.clickOnStoreDropdown(driver).click();
         Thread.sleep(1000);
-        purchaseInvoice_page.selectValueFromDropdown2(driver).click();
+        purchaseInvoice_page.select_store(driver);
 //        Thread.sleep(1000);
 //        purchaseInvoice_page.click_span(driver).click();
         purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/20230109-030024.csv");
 //        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
         Thread.sleep(1000);
         purchaseInvoice_page.selectProduct(driver).click();
-        purchaseInvoice_page.enter_tax(driver).sendKeys(""+random_number);
+        purchaseInvoice_page.enter_tax(driver).sendKeys(object.getProduct_cost());
 //        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
         Actions a = new Actions(driver);
         //scroll down a page
