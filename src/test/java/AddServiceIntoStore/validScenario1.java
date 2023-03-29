@@ -6,6 +6,7 @@ import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 /**  طريقه الضرايب ضريبه حصريه و الضريبه صفريه* */
@@ -19,8 +20,13 @@ public class validScenario1 {
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
     {
+
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-        driver=new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("w3c", true);
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        //        driver=new ChromeDriver();
     }
     @Test(priority = 0)
     public void Valid_login() throws InterruptedException {

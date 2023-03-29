@@ -2,6 +2,7 @@ package login;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 
 public class Valid_login_test{
@@ -11,7 +12,11 @@ public class Valid_login_test{
     @Test
     public void Valid_login() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("w3c", true);
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        //        driver = new ChromeDriver();
 //       WebDriverManager.chromedriver().setup();
         driver.manage().window().maximize();
         driver.get("https://gdawel.app/");

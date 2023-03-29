@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
@@ -30,7 +31,11 @@ public class Invalid_register_test2 {
     public void SetUp()
     {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-        driver=new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("w3c", true);
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        //        driver=new ChromeDriver();
     }
 
     @Test(priority = 0)

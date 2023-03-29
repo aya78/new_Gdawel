@@ -1,17 +1,19 @@
 package AddServiceIntoStore;
 
 import AddProductIntoStore.product_page;
+import com.github.javafaker.Faker;
 import login.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 /** empty name  && exist barcode **/
 
 public class InvalidScenario1 {
     String random_number = RandomStringUtils.random(5, false, true);
-    String random_barcode = RandomStringUtils.random(8, false, true);
+    String random_barcode =     RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
 
     public WebDriver driver;
@@ -19,15 +21,19 @@ public class InvalidScenario1 {
     public void SetUp()
     {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-        driver=new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("w3c", true);
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+//        driver=new ChromeDriver();
     }
     @Test(priority = 0)
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("http://10.10.0.50/");
         login_Page.click_login(driver).click();
-        login_Page.enter_email(driver).sendKeys("semo88@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
+        login_Page.enter_pass(driver).sendKeys("" + 123456789);
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }
@@ -42,6 +48,8 @@ public class InvalidScenario1 {
         /** empty name  && exist barcode
          *  'قيمة code مُستخدمة من قبل
          '**/
+        product_page object =new product_page();
+        Faker fakeData=new Faker();
         service_page.clickAddProduct(driver).click();
         Thread.sleep(2000);
         service_page.clickAddService(driver).click();
@@ -50,8 +58,8 @@ public class InvalidScenario1 {
         Thread.sleep(2000);
         service_page.click_dropdown(driver).click();
         Thread.sleep(1000);
-        service_page.select_brand(driver).click();
-        service_page.click_product_cost(driver).sendKeys("200");
+        product_page.select_brand(driver);
+        service_page.click_product_cost(driver).sendKeys(object.getProduct_cost());
         service_page.click_add_service(driver).click();
         Thread.sleep(1000);
     }

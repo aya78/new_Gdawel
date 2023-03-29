@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -24,7 +25,11 @@ public class InValidTest4 {
         public void SetUp()
         {
             System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-            driver=new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.setExperimentalOption("w3c", true);
+            options.addArguments("--remote-allow-origins=*");
+            driver = new ChromeDriver(options);
+            // driver=new ChromeDriver();
         }
         @Test(priority = 0)
         public void Valid_login() throws InterruptedException {

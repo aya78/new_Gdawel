@@ -3,6 +3,7 @@ package AddProductIntoStore;
 import login.login_Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 public class login_to_account {
@@ -12,7 +13,11 @@ public class login_to_account {
     @Test
     public void Valid_login() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("w3c", true);
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        // driver = new ChromeDriver();
 //       WebDriverManager.chromedriver().setup();
         driver.manage().window().maximize();
         driver.get("http://10.10.0.50/");
