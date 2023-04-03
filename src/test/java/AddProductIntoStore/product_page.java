@@ -78,7 +78,55 @@ public class product_page {
         element = driver.findElement(By.xpath("//*[@id=\"data-length-operations\"]/a[2]"));
         return element;
     }
-    /**  ---------------------------------------------------------------add product -------------------------------------------------------------- **/
+    /**  ------------------------------------add unit & brand ---------------------------add product -------------------------------------------------------------- **/
+
+    public static WebElement open_units(WebDriver driver){
+        element = driver.findElement(By.xpath("//a[@href='https://gdawel.app/dashboard/unit']"));
+        return element;
+    }
+    // //*[@id="content"]/div[1]/section/div/div[1]/div/a[1]
+    public static WebElement add_new_unit(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/section/div/div[1]/div/a[1]"));
+        return element;
+    }
+    public static WebElement enter_barcode(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"createForm\"]/div[2]/div[1]/input"));
+        return element;
+    }
+    public static WebElement enter_name(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"createForm\"]/div[2]/div[2]/input"));
+        return element;
+    }
+    public static WebElement click_save_unit(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"createForm\"]/div[2]/input"));
+        return element;
+    }
+    /************************************  add brand *******************************************************************/
+    // name
+    public static WebElement open_brands(WebDriver driver){
+        element = driver.findElement(By.id("name"));
+        return element;
+    }
+    // //*[@id="content"]/div/section/div/div[1]/div/button[1]
+    public static WebElement add_brand(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div/button[1]"));
+        return element;
+    }
+    // //*[@id="createModal"]/div/div/form/div[2]/div[1]/input
+    public static WebElement enter_title(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"createModal\"]/div/div/form/div[2]/div[1]/input"));
+        return element;
+    }
+    public static WebElement select_image(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"input-64295f4d107b0\"]"));
+        return element;
+    }
+    // //*[@id="createModal"]/div/div/form/div[2]/div[3]/input
+    public static WebElement click_save_brand(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"createModal\"]/div/div/form/div[2]/div[3]/input"));
+        return element;
+    }
+
 
     // name
     public static WebElement enterProductName(WebDriver driver){

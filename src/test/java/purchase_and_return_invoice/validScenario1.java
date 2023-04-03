@@ -11,15 +11,19 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import AddProductIntoStore.InValidTest1;
 
 import java.util.concurrent.TimeUnit;
+
+import static AddProductIntoStore.validTest1.s;
 
 public class validScenario1 {
     String random_number = RandomStringUtils.random(2, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
+    InValidTest1 a = new InValidTest1();
     public String currentUrl;
-    public WebDriver driver;
+    public static WebDriver driver;
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
     {
@@ -69,7 +73,8 @@ public class validScenario1 {
         purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/20230109-030024.csv");
 //        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
         Thread.sleep(1000);
-        purchaseInvoice_page.selectProduct(driver).click();
+
+        purchaseInvoice_page.selectProduct(driver).sendKeys(s);
         purchaseInvoice_page.enter_tax(driver).sendKeys(object.getProduct_cost());
 //        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
         Actions a = new Actions(driver);

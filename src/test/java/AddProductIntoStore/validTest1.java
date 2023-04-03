@@ -25,7 +25,7 @@ public class validTest1 {
     String random_barcode = RandomStringUtils.random(8, false, true);
 
      public String random_string = RandomStringUtils.random(6, true, false);
-
+     public static String s;
     public WebDriver driver;
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
@@ -59,6 +59,7 @@ public class validTest1 {
 
         for(int i=0 ; i<= 5 ; i++)
         {
+
             product_page.clickAddProduct(driver).click();
             product_page object =new product_page();
             Faker fakeData=new Faker();
@@ -75,7 +76,7 @@ public class validTest1 {
 //        product_page.click_barcode_generator(driver).click();
 
             product_page.select_barcode(driver).sendKeys(object.getBarcode());
-            String s =object.getBarcode();
+            s =object.getBarcode();
             System.out.println(s);
             product_page.click_classification(driver).click();
             product_page.select_classification(driver).click();
