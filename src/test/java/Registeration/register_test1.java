@@ -1,5 +1,7 @@
 package Registeration;
 
+import AddProductIntoStore.product_page;
+import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import org.openqa.selenium.By;
@@ -20,12 +22,13 @@ public class register_test1 {
     String Traditional = RandomStringUtils.random(20, false, true);
     String Email_c = RandomStringUtils.random(6, true, true);
 //    String random_c_name = RandomStringUtils.random(10, true, false);
-    String random_manager_n = RandomStringUtils.random(5, true, false);
+    String random = RandomStringUtils.random(20, true, true);
     String person_name = RandomStringUtils.random(6, true, false);
     String email_n = RandomStringUtils.random(3, false, true);
     String personal_phone = RandomStringUtils.random(10, false, true);
     String random_password = RandomStringUtils.random(10, true, true);
     String random_string = RandomStringUtils.random(6, true, false);
+    String email;
 
     public WebDriver driver;
     @BeforeTest(description = "SetUp chrome driver")
@@ -59,13 +62,19 @@ public class register_test1 {
     }
     @Test(priority = 1)
     public void Register_Step2() throws InterruptedException {
+        product_page object =new product_page();
+        Faker fakeData=new Faker();
 
+        object.setName(fakeData.name().name());
+       ;
         /** ********************************************Step  2***********************************************************/
-        register_Page.enter_name(driver).sendKeys("" + person_name + " " + person_name);
+        register_Page.enter_name(driver).sendKeys(object.getName());
 //        String var = register_Page.enter_name(driver).getText();
-        register_Page.enter_Email(driver).sendKeys("" + person_name + email_n + "@gmail.com");
-        register_Page.enter_personal_Phone(driver).sendKeys("0" + personal_phone);
+        register_Page.enter_Email(driver).sendKeys(object.getEmail());
+         email = object.getEmail();
+        register_Page.enter_personal_Phone(driver).sendKeys(object.getPhone());
         register_Page.enter_Password(driver).sendKeys("123456789");
+        String password = object.getPassword();
 //        WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 //                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='xxxxxxxx']")));
 //        System.out.println(random_password);
@@ -75,21 +84,28 @@ public class register_test1 {
 //                .until(ExpectedConditions.elementToBeClickable(By.name("password_confirmation")));
 //        // Print the first result
 //        System.out.println(firstResult.getText());
-        register_Page.repeat_Password(driver).sendKeys("123456789");
+        register_Page.repeat_Password(driver).sendKeys(password);
         register_Page.click_next2(driver).click();
 //        Thread.sleep(2000);
     }
     @Test(priority = 2)
     public void Register_Step3() throws InterruptedException {
+        product_page object =new product_page();
 
+        Faker fakeData=new Faker();
       Thread.sleep(2000);
         /** ***********************************************Step 3************************************************************************/
-        register_Page.enter_company_name(driver).sendKeys("" + random_string + " " + random_string);
-        register_Page.enter_manager_name(driver).sendKeys("" + random_manager_n + " " + random_manager_n);
-        register_Page.enter_company_email(driver).sendKeys("" + random_string + "@" + random_string + ".com");
-        register_Page.enter_company_number(driver).sendKeys("0" + personal_phone);
-        register_Page.enter_TaxNumber(driver).sendKeys("" + Tax);
-        register_Page.enter_CommercialRegistration(driver).sendKeys("" + Traditional);
+        register_Page.enter_company_name(driver).sendKeys(fakeData.company().name());
+        register_Page.enter_manager_name(driver).sendKeys(fakeData.name().name());
+        register_Page.enter_company_email(driver).sendKeys(email);
+
+        register_Page.enter_company_number(driver).sendKeys(object.getPhone());
+        // 15 digits
+        register_Page.enter_TaxNumber(driver).sendKeys(fakeData.number().digits(15));
+        // 20 digits
+//        register_Page.enter_CommercialRegistration(driver).sendKeys(fakeData.number().digits(20));
+        register_Page.enter_CommercialRegistration(driver).sendKeys(random);
+
 //        register_Page.select_state(driver);
 //        WebElement fResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 //                .until(ExpectedConditions.elementToBeClickable(By.name("state_id")));
@@ -101,7 +117,7 @@ public class register_test1 {
 //        WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 //                .until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div/div/div[1]/div/form/div[1]/div/div[4]/div[1]/div/input")));
 //        register_Page.enter_first_address(driver).click();
-        register_Page.enter_first_address(driver).sendKeys("ddddd");
+        register_Page.enter_first_address(driver).sendKeys(fakeData.address().fullAddress());
 //        register_Page.enter_second_address(driver).sendKeys(""+random_string);
 //        WebElement cResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 //                .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='button'])[3]")));

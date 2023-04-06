@@ -30,14 +30,15 @@ public class purchaseInvoice_page {
         return element;
     }
     // //*[@id="purchase-form"]/div/div[2]/div/div[2]/button/div/div/div
+    // //*[@id="purchase-form"]/div[2]/div/div/div[2]/div/div[2]/button
     public static WebElement clickOnSupplierDropdown(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[2]/div/div[2]/button/div/div/div"));
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div[2]/div/div/div[2]/div/div[2]/button"));
         return element;
     }
     public static WebElement select_supplier(WebDriver driver) throws InterruptedException {
         element =driver.findElement(By.name("supplier_id"));
         Select skills = new Select(element);
-        int dropdown_value= driver.findElements(By.cssSelector("#purchase-form > div > div:nth-child(2) > div > div.dropdown.bootstrap-select.form-control.show > select > option")).size();
+        int dropdown_value= driver.findElements(By.cssSelector("#purchase-form > div.card > div > div > div:nth-child(2) > div > div.dropdown.bootstrap-select.form-control > select > option")).size();
         System.out.println(dropdown_value);
 
         Random random3=new Random();
@@ -54,7 +55,7 @@ public class purchaseInvoice_page {
 //    }
     // //*[@id="purchase-form"]/div/div[3]/div/div/button
     public static WebElement clickOnStoreDropdown(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div/div[3]/div/div/button"));
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div[2]/div/div/div[3]/div/div[2]/button"));
         return element;
     }
     public static WebElement select_store(WebDriver driver) throws InterruptedException {
@@ -94,6 +95,17 @@ public class purchaseInvoice_page {
     // //div[text()='09391587|Walker Burks']
     public static WebElement selectProduct(WebDriver driver){
         element = driver.findElement(By.xpath("//div[text()='09391587|Walker Burks']"));
+        return element;
+    }
+    /***/
+    // //*[@id="purchase-form"]/div[2]/div/div/div[4]/div/div/button
+    public static WebElement open_invoice_status(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"purchase-form\"]/div[2]/div/div/div[4]/div/div/button"));
+        return element;
+    }
+    // //*[@id="bs-select-10-1"]
+    public static WebElement select_invoice_status(WebDriver driver){
+        element = driver.findElement(By.xpath("//*[@id=\"bs-select-10-1\"]"));
         return element;
     }
     // //*[@id="purchase-form"]/div/div[9]/div/input

@@ -3,15 +3,12 @@ package Registeration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.Random;
 
 public class register_Page {
     private static WebElement element=null;
     // public int randomInt;
     static WebDriver driver ;
-    public register_Page(WebDriver driver) {
+    public register_Page() {
         this.driver = driver;
     }
     //email
@@ -87,19 +84,19 @@ public class register_Page {
         return element;
     }
     public static WebElement enter_name(WebDriver driver){
-        element = driver.findElement(By.xpath("//input[@class='form-control form-control-solid ']"));
+        element = driver.findElement(By.id("name"));
         return element;
     }
     public static WebElement enter_Email(WebDriver driver){
-        element = driver.findElement(By.xpath("(//input[@class='form-control form-control-solid '])[2]"));
+        element = driver.findElement(By.xpath("//*[@id=\"input-642d547434aea\"]"));
         return element;
     }
     public static WebElement enter_personal_Phone(WebDriver driver){
-        element = driver.findElement(By.xpath("(//input[@class='form-control form-control-solid '])[3]"));
+        element = driver.findElement(By.xpath("//*[@id=\"input-642d547434bdd\"]"));
         return element;
     }
     public static WebElement enter_Password(WebDriver driver){
-        element = driver.findElement(By.xpath("//input[@placeholder='xxxxxxxx']"));
+        element = driver.findElement(By.xpath("//*[@id=\"input-642d547437e1a\"]"));
         return element;
     }
     // (//input[@type='password'])[2]

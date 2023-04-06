@@ -43,7 +43,7 @@ public class validTest1 {
         driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
         login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 123456789);
+        login_Page.enter_pass(driver).sendKeys("" + 12345678);
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }
@@ -72,14 +72,14 @@ public class validTest1 {
             Thread.sleep(2000);
             product_page.enterProductName(driver).sendKeys(object.getName());
             product_page.click_brand(driver).click();
-            product_page.select_brand(driver).click();
+            product_page.select_brand(driver);
 //        product_page.click_barcode_generator(driver).click();
 
             product_page.select_barcode(driver).sendKeys(object.getBarcode());
             s =object.getBarcode();
             System.out.println(s);
             product_page.click_classification(driver).click();
-            product_page.select_classification(driver).click();
+            product_page.select_classification(driver);
             product_page.click_quantity(driver).sendKeys(object.getQuantity());
             product_page.click_product_unit(driver).click();
             product_page.click_product_cost(driver).sendKeys(object.getProduct_cost());

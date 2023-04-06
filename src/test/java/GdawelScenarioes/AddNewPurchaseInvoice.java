@@ -1,22 +1,20 @@
 package GdawelScenarioes;
 import AddProductIntoStore.add_brand;
 import AddProductIntoStore.add_unit;
-import com.github.javafaker.Faker;
 import login.login_Page;
-import AddProductIntoStore.product_page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import AddProductIntoStore.validTest1;
-import purchase_and_return_invoice.validScenario1;
+import purchase_and_return_invoice.complete_purchase_invoice;
 public class AddNewPurchaseInvoice {
     public WebDriver driver;
     validTest1 new_test = new validTest1();
     add_unit unit= new add_unit();
     add_brand brand = new add_brand();
-    validScenario1 purchase_invoice= new validScenario1();
+    complete_purchase_invoice purchase_invoice= new complete_purchase_invoice();
     @BeforeTest(description = "SetUp chrome driver")
     public void SetUp()
     {
