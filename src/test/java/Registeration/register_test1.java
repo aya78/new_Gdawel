@@ -1,6 +1,7 @@
 package Registeration;
 
-import AddProductIntoStore.product_page;
+import Pages.product_page;
+import Pages.register_Page;
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 

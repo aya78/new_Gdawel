@@ -1,10 +1,9 @@
 package AddProductIntoStore;
 
+import Pages.product_page;
 import com.github.javafaker.Faker;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +13,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 //import static javax.swing.text.rtf.RTFAttributes.BooleanAttribute.True;
-import java.io.File;
 
 import static org.codehaus.plexus.util.FileUtils.cleanDirectory;
 import static org.codehaus.plexus.util.FileUtils.waitFor;

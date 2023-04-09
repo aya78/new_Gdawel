@@ -1,8 +1,9 @@
 package purchase_and_return_invoice;
 
+import Pages.purchaseInvoice_page;
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

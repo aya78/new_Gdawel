@@ -1,7 +1,8 @@
 package AddServiceIntoStore;
 
-import AddProductIntoStore.product_page;
-import login.login_Page;
+import Pages.product_page;
+import Pages.service_page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

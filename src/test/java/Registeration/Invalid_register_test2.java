@@ -1,5 +1,6 @@
 package Registeration;
 
+import Pages.register_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

@@ -1,16 +1,16 @@
 package quotations;
 
+import Pages.quotations_page;
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import  purchase_and_return_invoice.purchaseInvoice_page;
+import Pages.purchaseInvoice_page;
 
 public class Action_on_quotation {
     public String random_num = RandomStringUtils.random(2, false, true);

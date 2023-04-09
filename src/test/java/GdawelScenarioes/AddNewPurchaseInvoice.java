@@ -1,7 +1,7 @@
 package GdawelScenarioes;
 import AddProductIntoStore.add_brand;
 import AddProductIntoStore.add_unit;
-import login.login_Page;
+import Pages.login_Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -39,12 +39,12 @@ public class AddNewPurchaseInvoice {
     @Test(priority = 2)
     public void add_product() throws InterruptedException {
 
-        new_test.open_products_page();
-        new_test.add_product_page();
-        unit.add_unit();
-        brand.add_brand();
-        new_test.open_products_page();
-        new_test.add_product_page();
+//        new_test.open_products_page();
+//        new_test.add_product_page();
+//        unit.add_unit();
+//        brand.add_brand();
+//        new_test.open_products_page();
+//        new_test.add_product_page();
     }
 
     @Test(priority = 3)

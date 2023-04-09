@@ -1,7 +1,8 @@
 package AddProductIntoStore;
 
+import Pages.product_page;
 import com.github.javafaker.Faker;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -9,11 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 /**     /** هذا المنتج له سعر ترويجي**/
 /** هذا المنتج له دفعه و تاريخ انتهاء صلاحيه**/
 

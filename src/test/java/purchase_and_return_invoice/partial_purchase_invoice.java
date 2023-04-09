@@ -1,9 +1,10 @@
 package purchase_and_return_invoice;
 
 import AddProductIntoStore.InValidTest1;
-import AddProductIntoStore.product_page;
+import Pages.product_page;
+import Pages.purchaseInvoice_page;
 import com.github.javafaker.Faker;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

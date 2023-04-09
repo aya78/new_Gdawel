@@ -1,6 +1,7 @@
 package AddProductIntoStore;
 
-import login.login_Page;
+import Pages.product_page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Random_user_test {
     String random_number = RandomStringUtils.random(5, false, true);

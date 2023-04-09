@@ -1,7 +1,8 @@
 package AddProductIntoStore;
 
+import Pages.product_page;
 import com.github.javafaker.Faker;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,8 +1,9 @@
 package purchase_and_return_invoice;
 
-import AddProductIntoStore.product_page;
+import Pages.product_page;
+import Pages.purchaseInvoice_page;
 import com.github.javafaker.Faker;
-import login.login_Page;
+import Pages.login_Page;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,13 +16,12 @@ import AddProductIntoStore.InValidTest1;
 
 import java.util.concurrent.TimeUnit;
 
-import static AddProductIntoStore.validTest1.s;
-
 public class complete_purchase_invoice {
     String random_number = RandomStringUtils.random(2, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
     public String random_string = RandomStringUtils.random(6, true, false);
     InValidTest1 a = new InValidTest1();
+    public String s;
     public String currentUrl;
     public static WebDriver driver;
     @BeforeTest(description = "SetUp chrome driver")
@@ -39,12 +39,63 @@ public class complete_purchase_invoice {
         driver.manage().window().maximize();
         driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
-        login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_email(driver).sendKeys("ramy@gmail.com");
+        login_Page.enter_pass(driver).sendKeys("" + 74108520);
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
     @Test(priority = 1)
+    public void open_products_page() throws InterruptedException {
+        product_page.clickOnSideMenu(driver).click();
+        product_page.clickOnProducts(driver).click();
+        Thread.sleep(2000);
+    }
+    @Test(priority = 2)
+    public void add_product_page() throws InterruptedException {
+
+        for(int i=0 ; i<= 5 ; i++)
+        {
+
+            product_page.clickAddProduct(driver).click();
+            product_page object =new product_page();
+            Faker fakeData=new Faker();
+            object.setName(fakeData.name().name());
+            object.setBarcode(fakeData.number().digits(8));
+            object.setQuantity(fakeData.number().digits(2));
+            object.setProduct_cost(fakeData.number().digits(3));
+            object.setSelling_price(fakeData.number().digits(3));
+
+            Thread.sleep(2000);
+            product_page.enterProductName(driver).sendKeys(object.getName());
+            product_page.click_brand(driver).click();
+            product_page.select_brand(driver);
+//        product_page.click_barcode_generator(driver).click();
+
+            product_page.select_barcode(driver).sendKeys(object.getBarcode());
+            s =object.getBarcode();
+            System.out.println(s);
+            product_page.click_classification(driver).click();
+            product_page.select_classification(driver);
+            product_page.click_quantity(driver).sendKeys(object.getQuantity());
+            product_page.click_product_unit(driver).click();
+            product_page.click_product_cost(driver).sendKeys(object.getProduct_cost());
+            Thread.sleep(2000);
+            product_page.click_Product_selling_price(driver).sendKeys(object.getSelling_price());
+            product_page.click_additional_Tax(driver).click();
+
+            Thread.sleep(2000);
+            Actions a = new Actions(driver);
+            //scroll down a page
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+            //scroll up a page
+            a.sendKeys(Keys.PAGE_UP).build().perform();
+            product_page.click_add_product(driver).click();
+            Thread.sleep(2000);
+            // comment
+        }
+
+    }
+    @Test(priority = 3)
     public void open_purchase_page() throws InterruptedException {
         /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
 
@@ -53,28 +104,19 @@ public class complete_purchase_invoice {
         purchaseInvoice_page.clickOnPurchases(driver).click();
 
     }
-    @Test(priority = 2)
+    @Test(priority = 4)
     public void add_purchase_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
         product_page object =new product_page();
         Faker fakeData=new Faker();
         object.setBarcode(fakeData.number().digits(3));
         purchaseInvoice_page.clickOnAddInvoice(driver).click();
-//      Thread.sleep(2000);
-        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
-        Thread.sleep(1000);
-        purchaseInvoice_page.select_supplier(driver);
-        Thread.sleep(1000);
-        purchaseInvoice_page.clickOnStoreDropdown(driver).click();
-        Thread.sleep(1000);
-        purchaseInvoice_page.select_store(driver);
-//        Thread.sleep(1000);
-//        purchaseInvoice_page.click_span(driver).click();
-        purchaseInvoice_page.upload_file(driver).sendKeys("/home/hash-pc-8/Downloads/20230109-030024.csv");
-//        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
+
+        purchaseInvoice_page.scan_barcode(driver).sendKeys("1");
         Thread.sleep(1000);
 
         purchaseInvoice_page.selectProduct(driver).sendKeys(s);
+        purchaseInvoice_page.enter_quantity(driver).sendKeys(""+50);
         purchaseInvoice_page.enter_tax(driver).sendKeys(object.getProduct_cost());
 //        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
         Actions a = new Actions(driver);
