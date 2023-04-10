@@ -22,6 +22,8 @@ public class validTest1 {
     String random_number = RandomStringUtils.random(5, false, true);
     String random_barcode = RandomStringUtils.random(8, false, true);
 
+//    login_Page loginPageObj = new LoginPage(driver);
+
      public String random_string = RandomStringUtils.random(6, true, false);
      public static String s;
     public WebDriver driver;

@@ -10,23 +10,24 @@ import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.cache.annotation.Caching;
-import org.springframework.core.annotation.Order;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class full_cycle {
+public class Gdawel_full_cycle{
     public String random_string = RandomStringUtils.random(6, true, false);
     InValidTest1 a = new InValidTest1();
-    String barcode;
+    public String barcode= String.valueOf(11233657);
     public String s;
     public String currentUrl;
     public static WebDriver driver;
@@ -40,7 +41,7 @@ public class full_cycle {
         driver = new ChromeDriver(options);
         //        driver=new ChromeDriver();
     }
-    @Test(priority = 0)
+    @Test
     public void Valid_login() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("https://gdawel.app/");
@@ -50,7 +51,7 @@ public class full_cycle {
         login_Page.validlogin(driver).click();
 //      Thread.sleep(2000);
     }
-    @Test(priority = 1)
+    @Test(dependsOnMethods = {"Valid_login"})
     public void open_products_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 
@@ -66,32 +67,42 @@ public class full_cycle {
         product_page.export_pdf(driver).click();
         product_page.export_excel(driver).click();
         product_page.clickOnProductName(driver).click();
-        barcode = driver.findElement(By.xpath("(//tr[@role='row']//td)[3]")).getText();
+//        barcode = driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/p")).getText();
+//        System.out.println(barcode);
         Thread.sleep(1000);
 
     }
-    @Test(priority = 2)
+    @Test( dependsOnMethods={"open_products_page"})
     @Caching
     public void openTransferPage() throws InterruptedException {
 
 
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-
+//        WebDriverWait wait = new WebDriverWait(driver,20);
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("#transfer-list-menu > a")));
+// click on the compose button as soon as the "compose" button is visible
+//        driver.findElement(By.xpath("//div[contains(text(),'COMPOSE')]")).click();
         product_page.open_transfers(driver).click();
 
         product_page.add_transfer(driver).click();
+        boolean m=ElementClickInterceptedException.DRIVER_INFO.isBlank();
+        new AssertionError(m);
         product_page.click_from_warehouse(driver).click();
         product_page.select_warehouse1(driver).click();
         Thread.sleep(1000);
         product_page.click_to_warehouse(driver).click();
-        product_page.select_warehouse2(driver);
+        Thread.sleep(1000);
 
-        product_page.click_barcode_search(driver).sendKeys(barcode);
+        product_page.select_warehouse2(driver);
+        Thread.sleep(1000);
+
+        product_page.click_barcode_search(driver).sendKeys(""+barcode);
+        Thread.sleep(1000);
         product_page.save_transfer(driver).click();
         product_page.open_exist_transfer(driver).click();
     }
 
-    @Test(priority = 3)
+    @Test(dependsOnMethods={"openTransferPage"})
     public void open_purchase_page() throws InterruptedException {
         /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
 
@@ -101,7 +112,7 @@ public class full_cycle {
         purchaseInvoice_page.clickOnPurchases(driver).click();
 
     }
-    @Test(priority = 4)
+    @Test(dependsOnMethods={"open_purchase_page"})
     public void add_purchase_page() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         product_page object =new product_page();
@@ -127,7 +138,7 @@ public class full_cycle {
         currentUrl =driver.getCurrentUrl();
     }
 
-    @Test(priority = 5,description = "add payment (full required amount)")
+    @Test(dependsOnMethods={"add_purchase_page"},description = "add payment (full required amount)")
     public void pay_purchase_invoice() {
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
         purchaseInvoice_page.clickAddPayment(driver).click();
@@ -135,7 +146,7 @@ public class full_cycle {
 //        purchaseInvoice_page.clickViewInvoice(driver).click();
     }
     @Story("Gadawel Basic sales search")@TmsLink("TC-003")
-    @Test(priority = 6, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
+    @Test(dependsOnMethods={"pay_purchase_invoice"}, description = "after create invoice copy it`s number and open purchases page and paste in search bar " +
             "\nThen the result status will get the sale invoice that matches the num entered in search bar that recently added")
     public void create_return_purchase_invoice() throws InterruptedException {
 
@@ -153,7 +164,7 @@ public class full_cycle {
     }
 
     @Story("add quotation")@TmsLink("TC-001")
-    @Test(priority = 7, description = " Login to Gdawel with valid username & password for exist user" +
+    @Test(dependsOnMethods={"create_return_purchase_invoice"}, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen navigate to sales & purchases and open quotations")
     public void add_quotation() throws InterruptedException {
         purchaseInvoice_page.clickOnSideMenu(driver).click();

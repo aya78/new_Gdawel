@@ -389,7 +389,7 @@ public class product_page {
     // //*[@id="from_warehouse_id"]
     public static WebElement click_from_warehouse(WebDriver driver){
         //  comment
-        element = driver.findElement(By.xpath("//*[@id=\"from_warehouse_id\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"transfer-form\"]/div/div[2]/div/div/div[2]/div/div/button"));
         return element;
     }
     public static WebElement select_warehouse1(WebDriver driver){
@@ -400,7 +400,7 @@ public class product_page {
     // //*[@id="to_warehouse_id"]
     public static WebElement click_to_warehouse(WebDriver driver){
         //  comment
-        element = driver.findElement(By.xpath("//*[@id=\"to_warehouse_id\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"transfer-form\"]/div/div[2]/div/div/div[4]/div/div/button"));
         return element;
     }
     public static WebElement select_warehouse2(WebDriver driver) throws InterruptedException {
