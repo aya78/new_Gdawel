@@ -119,7 +119,8 @@ public class Gdawel_full_cycle{
         Faker fakeData=new Faker();
         object.setBarcode(fakeData.number().digits(3));
         purchaseInvoice_page.clickOnAddInvoice(driver).click();
-
+        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
+        purchaseInvoice_page.select_supplier(driver);
         purchaseInvoice_page.scan_barcode(driver).sendKeys(""+barcode);
         Thread.sleep(1000);
 

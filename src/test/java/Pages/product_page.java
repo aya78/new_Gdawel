@@ -409,6 +409,7 @@ public class product_page {
         int dropdown_value= driver.findElements(By.cssSelector("#to_warehouse_id > option")).size();
         System.out.println(dropdown_value);
 
+
         Random random3=new Random();
         int index= random3.nextInt(dropdown_value);
         skills.selectByIndex(index);
