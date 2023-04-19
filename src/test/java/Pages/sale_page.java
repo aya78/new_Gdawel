@@ -95,7 +95,7 @@ public class sale_page {
 
     // //*[@id="lims_productcodeSearch"]
     public static WebElement scan_barcode(WebDriver driver) {
-        element = driver.findElement(By.xpath("//*[@id=\"lims_productcodeSearch\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"productcodeSearch\"]"));
         return element;
     }
 

@@ -151,7 +151,7 @@ public class Gdawel_full_cycle{
     public void create_return_purchase_invoice() throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
-        purchaseInvoice_page.open_invoice(driver).click();
+//        purchaseInvoice_page.open_invoice(driver).click();
         Thread.sleep(1000);
         purchaseInvoice_page.clickMoreButton(driver).click();
         purchaseInvoice_page.click_return_purchase(driver).click();
@@ -179,12 +179,9 @@ public class Gdawel_full_cycle{
         sale_page.clickOnAddInvoice(driver).click();
         Thread.sleep(1000);
         sale_page.clickOnClientDropdown(driver).click();
-        Thread.sleep(500);
-
-        sale_page.selectValueFromDropdown1(driver).click();
+        sale_page.selectValueFromDropdown1(driver);
         Thread.sleep(1000);
 
-        Thread.sleep(1000);
         sale_page.scan_barcode(driver).sendKeys(""+barcode);
         Thread.sleep(1000);
 //        sale_page.selectProduct(driver).click();
@@ -198,7 +195,7 @@ public class Gdawel_full_cycle{
     @Story("add quotation")@TmsLink("TC-001")
     @Test(dependsOnMethods={"add_sale_invoice"}, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen navigate to sales & purchases and open quotations")
-    public void add_quotation() throws InterruptedException {
+    public void add_sale_quotation() throws InterruptedException {
         purchaseInvoice_page.clickOnSideMenu(driver).click();
         Thread.sleep(1000);
 

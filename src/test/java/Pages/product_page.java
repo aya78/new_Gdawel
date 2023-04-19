@@ -394,7 +394,7 @@ public class product_page {
     }
     public static WebElement select_warehouse1(WebDriver driver){
         //  comment
-        element = driver.findElement(By.xpath("//*[@id=\"bs-select-8-0\"]"));
+        element = driver.findElement(By.cssSelector("#from_warehouse_id > option:nth-child(2)"));
         return element;
     }
     // //*[@id="to_warehouse_id"]
