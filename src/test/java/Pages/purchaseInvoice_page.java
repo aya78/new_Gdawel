@@ -88,7 +88,7 @@ public class purchaseInvoice_page {
         return element;
     }
     public static WebElement scan_barcode(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"lims_productcodeSearch\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"productcodeSearch\"]"));
         return element;
     }
     // //div[text()='06012945|flower']
@@ -99,7 +99,7 @@ public class purchaseInvoice_page {
     }
     // //*[@id="myTable"]/tbody/tr/td[3]/input
     public static WebElement enter_quantity(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"productcodeSearch\"]"));
+        element = driver.findElement(By.xpath("//*[@id=\"myTable\"]/tbody/tr/td[3]/input"));
         return element;
     }
     /***/
@@ -125,7 +125,7 @@ public class purchaseInvoice_page {
     }
     // //*[@id="submit-btn"]
     public static WebElement clickAddInvoice(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"submit-btn\"] "));
+        element = driver.findElement(By.xpath("//*[@id=\"submit-btn\"]"));
         return element;
     }
     // //*[@id="content"]/div/section/div/div[1]/div[1]/div[2]/button
@@ -189,7 +189,7 @@ public static WebElement open_invoice(WebDriver driver){
     /***********************************************************return purchase****************************************************************/
     // //*[@id="dropGroup"]/button
     public static WebElement clickMoreButton(WebDriver driver){
-        element=driver.findElement(By.xpath("//*[@id=\"content\"]/div/section/div/div[1]/div[1]/div[2]/div[1]/button"));
+        element=driver.findElement(By.xpath("//*[@id=\"dropGroup2\"]/button"));
         return element;
     }
     // //*[@id="invoiceItems"]/a[3]

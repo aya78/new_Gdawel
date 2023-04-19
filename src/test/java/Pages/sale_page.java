@@ -3,6 +3,9 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Random;
 
 public class sale_page {
     private static WebElement element = null;
@@ -37,10 +40,22 @@ public class sale_page {
     }
 
     // //*[@id="bs-select-11"]/ul/li[3]
-    public static WebElement selectValueFromDropdown1(WebDriver driver) {
-        element = driver.findElement(By.xpath("//*[@id=\"bs-select-8-0\"]"));
-        return element;
-    }
+    public static WebElement selectValueFromDropdown1(WebDriver driver) throws InterruptedException {
+
+            element =driver.findElement(By.name("customer_id"));
+            Select skills = new Select(element);
+            int dropdown_value= driver.findElements(By.cssSelector("#customer_id > option")).size();
+            System.out.println(dropdown_value);
+
+
+            Random random3=new Random();
+            int index= random3.nextInt(dropdown_value);
+            skills.selectByIndex(index);
+            System.out.println(index);
+            Thread.sleep(5000);
+            return element;
+        }
+
 
     // //*[@id="content"]/div/form/section/div/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div/div/button
     public static WebElement clickOnStoreDropdown(WebDriver driver) {

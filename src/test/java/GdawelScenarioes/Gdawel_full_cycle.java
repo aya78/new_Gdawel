@@ -1,10 +1,7 @@
 package GdawelScenarioes;
 
 import AddProductIntoStore.InValidTest1;
-import Pages.login_Page;
-import Pages.product_page;
-import Pages.purchaseInvoice_page;
-import Pages.quotations_page;
+import Pages.*;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
@@ -27,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class Gdawel_full_cycle{
     public String random_string = RandomStringUtils.random(6, true, false);
     InValidTest1 a = new InValidTest1();
-    public String barcode= String.valueOf(11233657);
+    public String barcode= String.valueOf(40658961);
     public String s;
     public String currentUrl;
     public static WebDriver driver;
@@ -119,18 +116,20 @@ public class Gdawel_full_cycle{
         Faker fakeData=new Faker();
         object.setBarcode(fakeData.number().digits(3));
         purchaseInvoice_page.clickOnAddInvoice(driver).click();
-        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
-        purchaseInvoice_page.select_supplier(driver);
+//        purchaseInvoice_page.clickOnSupplierDropdown(driver).click();
+//        purchaseInvoice_page.select_supplier(driver);
         purchaseInvoice_page.scan_barcode(driver).sendKeys(""+barcode);
         Thread.sleep(1000);
 
-        purchaseInvoice_page.selectProduct(driver).sendKeys(s);
-        purchaseInvoice_page.enter_quantity(driver).sendKeys(""+50);
-        purchaseInvoice_page.enter_tax(driver).sendKeys(object.getProduct_cost());
+//      purchaseInvoice_page.selectProduct(driver).sendKeys(s);
+//        purchaseInvoice_page.enter_quantity(driver).click();
+//        purchaseInvoice_page.enter_quantity(driver).sendKeys(Keys.BACK_SPACE);
+//        purchaseInvoice_page.enter_quantity(driver).sendKeys(""+50);
+       // purchaseInvoice_page.enter_tax(driver).sendKeys(object.getProduct_cost());
 //        purchaseInvoice_page.enter_product_cost(driver).sendKeys(""+random_number);
-        Actions a = new Actions(driver);
-        //scroll down a page
-        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+//        Actions a = new Actions(driver);
+//        //scroll down a page
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
         //scroll up a page
 //        a.sendKeys(Keys.PAGE_UP).build().perform();
         Thread.sleep(1000);
@@ -163,9 +162,41 @@ public class Gdawel_full_cycle{
         Thread.sleep(1000);
         purchaseInvoice_page.click_save_return_purchase(driver).click();
     }
+    @Story("Gadawel sales")@TmsLink("TC-001")
+    @Test(dependsOnMethods={"create_return_purchase_invoice"})
+    public void open_sales_page() {
+        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        purchaseInvoice_page.clickOnSideMenu(driver).click();
+        sale_page.open_sales(driver).click();
+    }
+    @Story("add sale invoice ")@TmsLink("TC-002")
+    @Test(dependsOnMethods={"open_sales_page"}, description = "add sale invoice with [ reimbursement status : pending, invoice status : complete ] "+
+            "Then the result status will add invoice & open it`s details")
+    public void add_sale_invoice() throws InterruptedException {
+        /** THIS row of code below mean that -> driver wait for 800 seconds after any action in elements **/
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        sale_page.clickOnAddInvoice(driver).click();
+        Thread.sleep(1000);
+        sale_page.clickOnClientDropdown(driver).click();
+        Thread.sleep(500);
+
+        sale_page.selectValueFromDropdown1(driver).click();
+        Thread.sleep(1000);
+
+        Thread.sleep(1000);
+        sale_page.scan_barcode(driver).sendKeys(""+barcode);
+        Thread.sleep(1000);
+//        sale_page.selectProduct(driver).click();
+        sale_page.enter_Shipping_charges(driver).sendKeys("20");
+//        Actions a = new Actions(driver);
+//        a.sendKeys(Keys.PAGE_DOWN).build().perform();
+        Thread.sleep(1000);
+        sale_page.clickAddInvoice(driver).click();
+    }
 
     @Story("add quotation")@TmsLink("TC-001")
-    @Test(dependsOnMethods={"create_return_purchase_invoice"}, description = " Login to Gdawel with valid username & password for exist user" +
+    @Test(dependsOnMethods={"add_sale_invoice"}, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen navigate to sales & purchases and open quotations")
     public void add_quotation() throws InterruptedException {
         purchaseInvoice_page.clickOnSideMenu(driver).click();
