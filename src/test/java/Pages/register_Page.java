@@ -3,6 +3,9 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Random;
 
 public class register_Page {
     private static WebElement element=null;
@@ -84,24 +87,24 @@ public class register_Page {
         return element;
     }
     public static WebElement enter_name(WebDriver driver){
-        element = driver.findElement(By.id("name"));
+        element = driver.findElement(By.name("name"));
         return element;
     }
     public static WebElement enter_Email(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"input-642d547434aea\"]"));
+        element = driver.findElement(By.xpath("//input[@placeholder='email@example.com']"));
         return element;
     }
     public static WebElement enter_personal_Phone(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"input-642d547434bdd\"]"));
+        element = driver.findElement(By.xpath("//div[contains(@class,'input-group input-group-solid')]//input[1]"));
         return element;
     }
     public static WebElement enter_Password(WebDriver driver){
-        element = driver.findElement(By.xpath("//*[@id=\"input-642d547437e1a\"]"));
+        element = driver.findElement(By.xpath("//input[@type='password']"));
         return element;
     }
     // (//input[@type='password'])[2]
     public static WebElement repeat_Password(WebDriver driver){
-        element = driver.findElement(By.name("password_confirmation"));
+        element = driver.findElement(By.xpath("(//input[@type='password'])[2]"));
         return element;
     }
     public static WebElement enter_invitation_code(WebDriver driver){
@@ -185,22 +188,22 @@ public class register_Page {
         return element;
     }
 
-    //city_id
+   // city_id
     // #register_stepper > form > div.mb-5 > div > div:nth-child(3) > div:nth-child(2) > div > select > option:nth-child(4)
-//    public static WebElement select_city(WebDriver driver) throws InterruptedException {
-//        element =driver.findElement(By.id("city_id"));
-//        Select skills = new Select(element);
-//        int dropdown_value= driver.findElements(By.cssSelector("#register_stepper > form > div.mb-5 > div > div:nth-child(3) > div:nth-child(2) > div > select > option")).size();
-//        System.out.println(dropdown_value);
-//
-//        Random random2=new Random();
-//        int index= random2.nextInt(dropdown_value);
-//
-//        skills.selectByIndex(index);
-//        System.out.println(" count"+index);
-////      Thread.sleep(1000);
-//        return element;
-//    }
+    public static WebElement select_city(WebDriver driver) throws InterruptedException {
+        element =driver.findElement(By.id("city_id"));
+        Select skills = new Select(element);
+        int dropdown_value= driver.findElements(By.cssSelector("#register_stepper > form > div.mb-5 > div > div:nth-child(3) > div:nth-child(2) > div > select > option")).size();
+        System.out.println(dropdown_value);
+
+        Random random2=new Random();
+        int index= random2.nextInt(dropdown_value);
+
+        skills.selectByIndex(index);
+        System.out.println(" count"+index);
+//      Thread.sleep(1000);
+        return element;
+    }
 
     // //input[@placeholder='Address 1']
     public static WebElement enter_first_address(WebDriver driver){

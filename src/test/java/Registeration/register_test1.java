@@ -71,11 +71,11 @@ public class register_test1 {
         /** ********************************************Step  2***********************************************************/
         register_Page.enter_name(driver).sendKeys(object.getName());
 //        String var = register_Page.enter_name(driver).getText();
-        register_Page.enter_Email(driver).sendKeys(object.getEmail());
+        register_Page.enter_Email(driver).sendKeys("beraho6297@jwsuns.com");
          email = object.getEmail();
-        register_Page.enter_personal_Phone(driver).sendKeys(object.getPhone());
-        register_Page.enter_Password(driver).sendKeys("123456789");
-        String password = object.getPassword();
+        register_Page.enter_personal_Phone(driver).sendKeys("01241258963");
+        String password="123456789";
+        register_Page.enter_Password(driver).sendKeys(password);
 //        WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 //                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='xxxxxxxx']")));
 //        System.out.println(random_password);
@@ -98,9 +98,9 @@ public class register_test1 {
         /** ***********************************************Step 3************************************************************************/
         register_Page.enter_company_name(driver).sendKeys(fakeData.company().name());
         register_Page.enter_manager_name(driver).sendKeys(fakeData.name().name());
-        register_Page.enter_company_email(driver).sendKeys(email);
+        register_Page.enter_company_email(driver).sendKeys("beraho6297@jwsuns.com");
 
-        register_Page.enter_company_number(driver).sendKeys(object.getPhone());
+        register_Page.enter_company_number(driver).sendKeys("01241258963");
         // 15 digits
         register_Page.enter_TaxNumber(driver).sendKeys(fakeData.number().digits(15));
         // 20 digits
