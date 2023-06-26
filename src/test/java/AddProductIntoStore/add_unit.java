@@ -1,11 +1,5 @@
 package AddProductIntoStore;
 
-import Pages.product_page;
-import com.github.javafaker.Faker;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
-
 //import static Pages.product_page.driver;
 
 public class add_unit {

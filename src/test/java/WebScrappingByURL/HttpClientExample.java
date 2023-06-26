@@ -1,4 +1,4 @@
-package purchase_and_return_invoice;
+package WebScrappingByURL;
 import java.util.Scanner;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;

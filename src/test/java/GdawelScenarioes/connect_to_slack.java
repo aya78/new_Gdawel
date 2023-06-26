@@ -31,7 +31,6 @@ import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import org.w3c.dom.*;
 public class connect_to_slack {
 
-
     public class SlackIntegration {
         private static String SlackWebHook = "https://api.slack.com/apps/A051AQYP31B";
         private static String channelName = "gadawel";

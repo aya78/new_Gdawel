@@ -43,7 +43,7 @@ public class validTest1 {
         driver.get("https://gdawel.app/");
         login_Page.click_login(driver).click();
         login_Page.enter_email(driver).sendKeys("ayak77431@gmail.com");
-        login_Page.enter_pass(driver).sendKeys("" + 12345678);
+        login_Page.enter_pass(driver).sendKeys("74108520");
         login_Page.validlogin(driver).click();
         Thread.sleep(2000);
     }

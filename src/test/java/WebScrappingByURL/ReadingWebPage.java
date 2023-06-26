@@ -1,19 +1,9 @@
-package purchase_and_return_invoice;
+package WebScrappingByURL;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.w3c.dom.html.HTMLBodyElement;
-import org.w3c.dom.html.HTMLDivElement;
 
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Position;
-import javax.swing.text.Segment;
-import javax.swing.undo.UndoableEdit;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class ReadingWebPage {

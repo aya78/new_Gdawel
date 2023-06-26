@@ -1,12 +1,15 @@
 package login;
 
 import Pages.login_Page;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.converters.ExtentHtmlLogConverter;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 public class Valid_login_test{
@@ -17,17 +20,15 @@ public class Valid_login_test{
 
     @Test
     public void Valid_login() throws InterruptedException {
-        extentReports = new ExtentReports("/home/hash-pc-8/Documents/vs_code/Gadawl/ExtentReports/TestReports.html",true);
-
+        extentReports  = new ExtentReports("/home/hash-pc-8/Documents/vs_code/Gadawl/ExtentReports/TestReports.html",true);
+//        test= Reporter.getCurrentTestResult();
         System.setProperty("webdriver.chrome.driver","/home/hash-pc-8/IdeaProjects/Gadawl/src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("w3c", true);
         options.addArguments("--remote-allow-origins=*");
         test =extentReports.startTest("verify valid  Login ");
-
         driver = new ChromeDriver(options);
-        //        driver = new ChromeDriver();
-//       WebDriverManager.chromedriver().setup();
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("/home/hash-pc-8/Documents/vs_code/Gadawl/ExtentReports/TestReports.html");
         driver.manage().window().maximize();
         driver.get("https://gdawel.app/");
         test.log(LogStatus.PASS,"browser is open and windows is maximized");
@@ -54,7 +55,7 @@ public class Valid_login_test{
             test.log(LogStatus.PASS,"Password is entered");
         }else
             test.log(LogStatus.FAIL,"fail to find password element");
-        login_Page.enter_pass(driver).sendKeys(""+123456789);
+        login_Page.enter_pass(driver).sendKeys(""+74108520);
 
 
 

@@ -1,8 +1,7 @@
-package purchase_and_return_invoice;
+package WebScrappingByURL;
 
-import javax.swing.text.Document;
 import java.io.IOException;
-import org.jsoup.Connection;
+
 import org.jsoup.Jsoup;
 //import org.jsoup.nodes.Document;
 
@@ -13,8 +12,6 @@ public class JsoupExample {
 
             String html = Jsoup.connect(webPage).get().html();
 //            String body = Jsoup.connect(webPage).request().requestBody();
-
-
             System.out.println(html);
         }
 //    String result = doc.body().text();
