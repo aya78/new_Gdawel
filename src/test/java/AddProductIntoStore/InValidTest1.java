@@ -66,5 +66,6 @@ public class InValidTest1 {
 //        product_page.upload_product_img(driver).sendKeys("/home/hash-pc-8/Downloads/iphone.jpeg");
         product_page.click_add_product(driver).click();
         Thread.sleep(2000);
+        System.out.println("");
     }
 }

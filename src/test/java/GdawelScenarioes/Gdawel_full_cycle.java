@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.springframework.cache.annotation.Caching;
+//import org.springframework.cache.annotation.Caching;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -67,7 +67,7 @@ public class Gdawel_full_cycle{
 
     }
     @Test( dependsOnMethods={"open_products_page"})
-    @Caching
+//    @Caching
     public void openTransferPage() throws InterruptedException {
 
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 import static groovy.xml.Entity.gt;
 import static groovy.xml.Entity.lt;
-import static io.qameta.allure.internal.shadowed.jackson.databind.type.LogicalType.Map;
+//import static io.qameta.allure.internal.shadowed.jackson.databind.type.LogicalType.Map;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;

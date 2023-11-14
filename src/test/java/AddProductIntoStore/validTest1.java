@@ -14,8 +14,8 @@ import org.testng.annotations.Test;
 
 //import static javax.swing.text.rtf.RTFAttributes.BooleanAttribute.True;
 
-import static org.codehaus.plexus.util.FileUtils.cleanDirectory;
-import static org.codehaus.plexus.util.FileUtils.waitFor;
+//import static org.codehaus.plexus.util.FileUtils.cleanDirectory;
+//import static org.codehaus.plexus.util.FileUtils.waitFor;
 /**  طريقه الضرايب ضريبه حصريه و الضريبه مضافه* */
 
 public class validTest1 {

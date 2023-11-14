@@ -1,8 +1,8 @@
 package login;
 
 import Pages.login_Page;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.converters.ExtentHtmlLogConverter;
+//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+//import com.aventstack.extentreports.reporter.converters.ExtentHtmlLogConverter;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -28,7 +28,7 @@ public class Valid_login_test{
         options.addArguments("--remote-allow-origins=*");
         test =extentReports.startTest("verify valid  Login ");
         driver = new ChromeDriver(options);
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("/home/hash-pc-8/Documents/vs_code/Gadawl/ExtentReports/TestReports.html");
+//        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("/home/hash-pc-8/Documents/vs_code/Gadawl/ExtentReports/TestReports.html");
         driver.manage().window().maximize();
         driver.get("https://gdawel.app/");
         test.log(LogStatus.PASS,"browser is open and windows is maximized");

@@ -27,7 +27,8 @@ public class add_quotation {
         driver = new ChromeDriver(options);
         //        driver=new ChromeDriver();
     }
-    @Story("Gadawel Basic Login")@TmsLink("TC-000")
+    @Story("Gadawel Basic Login")
+    @TmsLink("TC-000")
     @Test(priority = 0, description = " Login to Gdawel with valid username & password for exist user" +
             " \nThen the result status will open the website")
     public void Valid_login() throws InterruptedException {
